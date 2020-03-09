@@ -16,7 +16,7 @@
     <meta name="description" content="Hikoyan">
     
     <title>
-      blender 学习（2） - Hiko&#39;s Blog
+      操作系统笔记*N - Hiko&#39;s Blog
     </title>
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
@@ -27,8 +27,8 @@
     
     <div id="post-toc" class="animated hiddenToc hide">
       <span class="title">Toc</span>
-      <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#记一下自己每天的笔记，昨天尝试了基本操作，仍然有很多生硬的操作。"><span class="toc-text">记一下自己每天的笔记，昨天尝试了基本操作，仍然有很多生硬的操作。</span></a></li></ol><li class="toc-item toc-level-4"><a class="toc-link" href="#UV-渲染输出"><span class="toc-text">UV+渲染输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#今日成果-12v北浮电池一个"><span class="toc-text">今日成果 12v北浮电池一个~</span></a>
-    </li></div>
+      <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#就把这里当做复习营地了"><span class="toc-text">就把这里当做复习营地了</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#第一章"><span class="toc-text">第一章</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#发展历史"><span class="toc-text">发展历史</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#总线（Bus"><span class="toc-text">总线（Bus)</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#用户视图（四层）"><span class="toc-text">用户视图（四层）</span></a>
+    </li></ol></li></div>
     
     <div id="fixed-menu-wrap">
       <span class="iconfont icon-sousuo search-box menu-reset"></span>
@@ -169,15 +169,15 @@
         <article class="post-entry">
     <div class="header">
       
-      <div class="title">blender 学习（2）</div>
+      <div class="title">操作系统笔记*N</div>
       <div class="meta">
         <span class="item">
           <span class="iconfont icon-time-circle"></span>
-          <span>2020/03/06</span>
+          <span>2020/03/09</span>
         </span>
 
         
-          <span class="item leancloud-visitors" id="/2020/03/06/post/" data-flag-title="blender 学习（2）">
+          <span class="item leancloud-visitors" id="/2020/03/09/post/" data-flag-title="操作系统笔记*N">
             <span class="iconfont icon-eye1"></span>
             <span class="leancloud-visitors-count"></span>
           </span>
@@ -202,11 +202,11 @@
             <span>
                 
                   
-                    <a href="/tags/Blender">Blender</a>
+                    <a href="/tags/计科">计科</a>
                   
                 
                   
-                    <a href="/tags/建模">建模</a>
+                    <a href="/tags/操作系统">操作系统</a>
                   
                 
             </span>
@@ -216,28 +216,27 @@
       <div>
       </div>
     </div>
-    <blockquote>
-<p><a href="https://www.51sjsj.com/play.html?courseId=1617&amp;lessonId=23792">https://www.51sjsj.com/play.html?courseId=1617&amp;lessonId=23792</a></p>
-<p>设计师之家的blender搬运视频教程</p>
-</blockquote>
-<h6 id="记一下自己每天的笔记，昨天尝试了基本操作，仍然有很多生硬的操作。">记一下自己每天的笔记，昨天尝试了基本操作，仍然有很多生硬的操作。<a class="post-anchor" href="#记一下自己每天的笔记，昨天尝试了基本操作，仍然有很多生硬的操作。"></a></h6><p>看了视频以后发现，blender的选中物体（整个物体）时用的右键MRB，全选也不是ctrl+A而是A，这些操作的理由都非常清晰，不得不说开源的话建模发展不是一般的快，而且顺应程序和交互的逻辑。A的操作类似一个全选开关，如果按下A，所有的选中状态就从on/off切换了。</p>
-<p>B是开启十字瞄准，按住左键MLB拖动就可以选中所有框选的物体（基本和其他软件一致），按住中键MMB拖动–减选，而右键此时的操作则是取消（事实上任何时候取消一个工具的操作都可以按MRB）</p>
-<p>C是开启笔刷刷选（其他软件可能是画圆），滚轴可以缩放笔刷的半径，</p>
-<p>G对应（grab抓取）移动，这也是Move并不是M的原因，移动本来是要根据三轴移动的，不过自由摆放就更像抓取？2333 按下G以后边线会变成高亮的白色（不是橙色）</p>
-<p>R对应rotate旋转，（按两下R是自由旋转）S对应scale，加alt还原到初始的变换。</p>
-<p>MLB确认 MRB取消不过这些变换操作基本，上是根据视平面的（当前的平面方向），结合 X Y Z变化视平面就可以更自由地变换了</p>
-<p>shift+a是个快捷菜单 可以添加物体，之前说的3d游标就作为物体的出生点</p>
-<p>按下T就可以看见create分栏，选择更多物体</p>
-<p>H（hide)隐藏模型，alt+H还原（所有隐藏物体），如果想特定显示某个隐藏了的物体就到菜单的层次里点那个眼睛（类似ps的图层操作吧）alt+H有时也只显示当前图层的物体</p>
-<p>M move layer+数字键（不能是数字键盘） 把物体移到第n个图层这个操作有点麻烦（文字写出来的话）</p>
-<hr>
-<p>tab进入编辑模式。Nurbs模型和 UV模型，一个是表面网格一个是网格模型（常规的多边形网格模型 如果光滑着色的话两个看起来非常像），而Nurbs是由数学等式和方程生成的，操作比较有限，但十分光滑。</p>
-<h4 id="UV-渲染输出">UV+渲染输出<a class="post-anchor" href="#UV-渲染输出"></a></h4><p>嘛在掌握基础操作以后制作UV就容易多了，2.8+版本里的uv editor 和texture界面都比较清楚，按U（按住是智能UV展开）可以展开UV并在editor里制作UV分布图。注意的是如果直接按A会选中所有的面，一次性展开的话如果你的模型各个方向上的面选起来比较麻烦的话，所有UV都叠在一起你会很难去到PS里绘制，所以建议手动选面（不依靠插件什么的话）然后分好组按U展开（比如我要做的是柱体的话 可能会是按视图展开，也可以柱体展开）。</p>
-<p>展开完成后A全选UV布局 选择那个小菜单栏里的“UV”，可以并排减少冗余（如果你的UV都很大 亲这边建议手动缩放））</p>
-<p>导出到PS就可以开始绘制啦，绘制完后再UV那导入图像  切到texture新建一个材质并在颜色后面那个小点上选择（对那个点是可以展开菜单的，哇就是因为这个我还特地去翻手册 总感觉没有一点提示 UI做的一般般（swtcl）可以选择你刚刚导入的图像纹理，然后选择预览渲染效果，贴图就贴上了。</p>
-<p>调好灯光什么的 包括节点（其实创建的时候 选择使用节点就会在shading那里有了 同步可以编辑的）</p>
-<p>选择渲染导出（渲染图像  查看渲染结果英文对应 recent result 所以如果发现图像没变不用焦急哈）  相机大小可以直接在右侧编辑器里改数值  建议不要动侧边 小字工具的x  y比例 那个会压扁图像的。</p>
-<h4 id="今日成果-12v北浮电池一个">今日成果 12v北浮电池一个~<a class="post-anchor" href="#今日成果-12v北浮电池一个"></a></h4><p><a href="https://imgchr.com/i/3LyJtf"><a href="https://s2.ax1x.com/2020/03/06/3LyJtf.jpg" data-caption="3LyJtf.jpg" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/06/3LyJtf.jpg" alt="3LyJtf.jpg"></a></a></p>
+    <p>Day 1</p>
+<h6 id="就把这里当做复习营地了">就把这里当做复习营地了<a class="post-anchor" href="#就把这里当做复习营地了"></a></h6><h3 id="第一章">第一章<a class="post-anchor" href="#第一章"></a></h3><p><a href="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309200650499.png" data-caption="image-20200309200650499" data-fancybox="images"><img src="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309200650499.png" alt="image-20200309200650499"></a></p>
+<p>基础之基础图↑  分层体系结构</p>
+<p>其中下面三部分（硬件）属于计算机组成原理的内容</p>
+<p>上层使用下层的服务，下层提供上层的服务接口，（通过服务接口调用），服务提供者和服务消费者。</p>
+<p>操作系统是唯一的（唯一性），和硬件交互的唯一的<strong>软件</strong>（在现代操作系统中 为了安全性）就只有操作系统。其他所有软件都不能绕过操作系统。是唯一运行在核心太模式 内核的软件（kernel status) （老师念成了可乐四忒特四）</p>
+<p>将复杂硬件调用接口简化、整合、抽象为一个更简单的调用方式（具体的系统抽象化  硬件软件化）</p>
+<p>其他软件（包括系统软件 如编译器）则运行在用户太。</p>
+<p>系统调用以区别于普通的过程调用</p>
+<h5 id="发展历史">发展历史<a class="post-anchor" href="#发展历史"></a></h5><p><a href="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309202906262.png" data-caption="image-20200309202906262" data-fancybox="images"><img src="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309202906262.png" alt="image-20200309202906262"></a></p>
+<p><strong>组成原理简图</strong>（冯洛伊曼）</p>
+<p>CPU &amp;memory +I/O 设备 （外存属于I/0) </p>
+<h6 id="总线（Bus">总线（Bus)<a href="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309210045484.png" data-caption="image-20200309210045484" data-fancybox="images"><img src="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309210045484.png" alt="image-20200309210045484"></a><a class="post-anchor" href="#总线（Bus"></a></h6><p>PC指针  program counter 程序计数器，寻址单位是字节，最小单位是比特。Memory是唯一和CPU配合的，CPU不能直接到硬盘（I/O外围存储设备）拉取运行文件，需要先调入内存中。</p>
+<p><a href="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309203712301.png" data-caption="image-20200309203712301" data-fancybox="images"><img src="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309203712301.png" alt="image-20200309203712301"></a></p>
+<p><a href="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309202933135.png" data-caption="image-20200309202933135" data-fancybox="images"><img src="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309202933135.png" alt="image-20200309202933135"></a></p>
+<h5 id="用户视图（四层）">用户视图（四层）<a class="post-anchor" href="#用户视图（四层）"></a></h5><p><a href="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309202952955.png" data-caption="image-20200309202952955" data-fancybox="images"><img src="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309202952955.png" alt="image-20200309202952955"></a></p>
+<p>BIOS（不使用操作系统的软件） 因此没有安装操作系统的计算机系统可以运行程序，有不使用操作系统的软件（嵌入式软件）</p>
+<p><a href="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309211923684.png" data-caption="image-20200309211923684" data-fancybox="images"><img src="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309211923684.png" alt="image-20200309211923684"></a></p>
+<p><a href="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309211931845.png" data-caption="image-20200309211931845" data-fancybox="images"><img src="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309211931845.png" alt="image-20200309211931845"></a></p>
+<p><a href="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309213106965.png" data-caption="image-20200309213106965" data-fancybox="images"><img src="C:/Users/Hikoyan/AppData/Roaming/Typora/typora-user-images/image-20200309213106965.png" alt="image-20200309213106965"></a></p>
+<p>GUI命令接口 </p>
 
 
   
@@ -264,12 +263,10 @@
   <div class="post-guide">
     <div class="item left">
         
-          <a href="/2020/03/09/post/">操作系统笔记*N</a>
-        
     </div>
     <div class="item right">
         
-          <a href="/2020/03/05/post/">blender学习之路</a>
+          <a href="/2020/03/06/post/">blender 学习（2）</a>
         
     </div>
   </div>
@@ -281,7 +278,7 @@
       本文作者：<a href="https://hikohikoyan.github.io">hiko</a>
     </div>
     <div class="link">
-      永久链接：<a href="https://hikohikoyan.github.io/2020/03/06/post/">https://hikohikoyan.github.io/2020/03/06/post/</a>
+      永久链接：<a href="https://hikohikoyan.github.io/2020/03/09/post/">https://hikohikoyan.github.io/2020/03/09/post/</a>
     </div>
     <div class="declare">
       版权声明：本文首发于<a href="https://hikohikoyan.github.io">hiko</a>的博客，转载请注明出处！
