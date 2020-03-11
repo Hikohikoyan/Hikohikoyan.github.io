@@ -16,7 +16,7 @@
     <meta name="description" content="Hikoyan">
     
     <title>
-      操作系统笔记*N - Hiko&#39;s Blog
+      计网笔记*N - Hiko&#39;s Blog
     </title>
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
@@ -27,8 +27,8 @@
     
     <div id="post-toc" class="animated hiddenToc hide">
       <span class="title">Toc</span>
-      <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#就把这里当做复习营地了"><span class="toc-text">就把这里当做复习营地了</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#第一章"><span class="toc-text">第一章</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#发展历史"><span class="toc-text">发展历史</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#总线（Bus"><span class="toc-text">总线（Bus)</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#用户视图（四层）"><span class="toc-text">用户视图（四层）</span></a>
-    </li></ol></li></div>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#中间件？集群？（同种-物理本地）-网格？（异构）"><span class="toc-text">中间件？集群？（同种 物理本地） 网格？（异构）</span></a></li></ol>
+    </div>
     
     <div id="fixed-menu-wrap">
       <span class="iconfont icon-sousuo search-box menu-reset"></span>
@@ -169,15 +169,15 @@
         <article class="post-entry">
     <div class="header">
       
-      <div class="title">操作系统笔记*N</div>
+      <div class="title">计网笔记*N</div>
       <div class="meta">
         <span class="item">
           <span class="iconfont icon-time-circle"></span>
-          <span>2020/03/09</span>
+          <span>2020/03/11</span>
         </span>
 
         
-          <span class="item leancloud-visitors" id="/2020/03/09/post/" data-flag-title="操作系统笔记*N">
+          <span class="item leancloud-visitors" id="/2020/03/11/post/" data-flag-title="计网笔记*N">
             <span class="iconfont icon-eye1"></span>
             <span class="leancloud-visitors-count"></span>
           </span>
@@ -206,7 +206,7 @@
                   
                 
                   
-                    <a href="/tags/操作系统">操作系统</a>
+                    <a href="/tags/计算机网络">计算机网络</a>
                   
                 
             </span>
@@ -216,27 +216,19 @@
       <div>
       </div>
     </div>
-    <h6 id="就把这里当做复习营地了">就把这里当做复习营地了<a class="post-anchor" href="#就把这里当做复习营地了"></a></h6><h3 id="第一章">第一章<a class="post-anchor" href="#第一章"></a></h3><p><a href="https://s2.ax1x.com/2020/03/09/89HMtA.png" data-caption="89HMtA.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89HMtA.png" alt="89HMtA.png"></a></p>
-<p>基础之基础图↑  分层体系结构</p>
-<p>其中下面三部分（硬件）属于计算机组成原理的内容</p>
-<p>上层使用下层的服务，下层提供上层的服务接口，（通过服务接口调用），服务提供者和服务消费者。</p>
-<p>操作系统是唯一的（唯一性），和硬件交互的唯一的<strong>软件</strong>（在现代操作系统中 为了安全性）就只有操作系统。其他所有软件都不能绕过操作系统。是唯一运行在核心太模式 内核的软件（kernel status) （老师念成了可乐四忒特四）</p>
-<p>将复杂硬件调用接口简化、整合、抽象为一个更简单的调用方式（具体的系统抽象化  硬件软件化）</p>
-<p>其他软件（包括系统软件 如编译器）则运行在用户太。</p>
-<p>系统调用以区别于普通的过程调用</p>
-<h5 id="发展历史">发展历史<a class="post-anchor" href="#发展历史"></a></h5><p><a href="https://s2.ax1x.com/2020/03/09/89H1pt.png" data-caption="89H1pt.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89H1pt.png" alt="89H1pt.png"></a></p>
-<p><strong>组成原理简图</strong>（冯洛伊曼）</p>
-<p>CPU &amp;memory +I/O 设备 （外存属于I/0) </p>
-<h6 id="总线（Bus">总线（Bus)<a class="post-anchor" href="#总线（Bus"></a></h6><p><a href="https://s2.ax1x.com/2020/03/09/89H86f.png" data-caption="89H86f.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89H86f.png" alt="89H86f.png"></a></p>
-<p>PC指针  program counter 程序计数器，寻址单位是字节，最小单位是比特。Memory是唯一和CPU配合的，CPU不能直接到硬盘（I/O外围存储设备）拉取运行文件，需要先调入内存中。</p>
-<p><a href="https://s2.ax1x.com/2020/03/09/89HQfI.png" data-caption="89HQfI.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89HQfI.png" alt="89HQfI.png"></a></p>
-<p><a href="https://s2.ax1x.com/2020/03/09/89H31P.png" data-caption="89H31P.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89H31P.png" alt="89H31P.png"></a></p>
-<h5 id="用户视图（四层）">用户视图（四层）<a class="post-anchor" href="#用户视图（四层）"></a></h5><p><a href="https://s2.ax1x.com/2020/03/09/89HKkd.png" data-caption="89HKkd.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89HKkd.png" alt="89HKkd.png"></a></p>
-<p>BIOS（不使用操作系统的软件） 因此没有安装操作系统的计算机系统可以运行程序，有不使用操作系统的软件（嵌入式软件）</p>
-<p><a href="https://s2.ax1x.com/2020/03/09/89HGX8.png" data-caption="89HGX8.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89HGX8.png" alt="89HGX8.png"></a></p>
-<p><a href="https://s2.ax1x.com/2020/03/09/89HYnS.png" data-caption="89HYnS.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89HYnS.png" alt="89HYnS.png"></a></p>
-<p><a href="https://s2.ax1x.com/2020/03/09/89Ht0g.png" data-caption="89Ht0g.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89Ht0g.png" alt="89Ht0g.png"></a></p>
-<p>GUI命令接口 </p>
+    <blockquote>
+<p>通信原理→网络 概念扩展→</p>
+</blockquote>
+<p><a href="https://raw.githubusercontent.com/Hikohikoyan/Gallery/master/img/20200311201950.png" data-caption="" data-fancybox="images"><img src="https://raw.githubusercontent.com/Hikohikoyan/Gallery/master/img/20200311201950.png" alt=""></a></p>
+<p>划重点：自主  独立自主性    资源 资源标识  传输协议</p>
+<p>DT设备（自主设备）       </p>
+<p>PSTM公用电话交换网络</p>
+<h4 id="中间件？集群？（同种-物理本地）-网格？（异构）">中间件？集群？（同种 物理本地） 网格？（异构）<a class="post-anchor" href="#中间件？集群？（同种-物理本地）-网格？（异构）"></a></h4><p>中间件也是一种软件，MID WARE</p>
+<p>集群就相当于是同构计算，设备基本相同时就互相连接起来，（刀片计算机)</p>
+<p><a href="https://raw.githubusercontent.com/Hikohikoyan/Gallery/master/img/20200311211624.png" data-caption="" data-fancybox="images"><img src="https://raw.githubusercontent.com/Hikohikoyan/Gallery/master/img/20200311211624.png" alt=""></a><br><a href="https://raw.githubusercontent.com/Hikohikoyan/Gallery/master/img/20200311211934.png" data-caption="" data-fancybox="images"><img src="https://raw.githubusercontent.com/Hikohikoyan/Gallery/master/img/20200311211934.png" alt=""></a></p>
+<p>古建筑未曾布线的建筑内的网络是<strong>无线网络</strong>，<strong>不是</strong>移动网络</p>
+<p><a href="https://raw.githubusercontent.com/Hikohikoyan/Gallery/master/img/20200311212933.png" data-caption="" data-fancybox="images"><img src="https://raw.githubusercontent.com/Hikohikoyan/Gallery/master/img/20200311212933.png" alt=""></a></p>
+<p>互通就代表着协议  互操作就代表着理念相通</p>
 
 
   
@@ -263,12 +255,10 @@
   <div class="post-guide">
     <div class="item left">
         
-          <a href="/2020/03/11/post/">计网笔记*N</a>
-        
     </div>
     <div class="item right">
         
-          <a href="/2020/03/06/post/">blender 学习（2）</a>
+          <a href="/2020/03/09/post/">操作系统笔记*N</a>
         
     </div>
   </div>
@@ -280,7 +270,7 @@
       本文作者：<a href="https://hikohikoyan.github.io">hiko</a>
     </div>
     <div class="link">
-      永久链接：<a href="https://hikohikoyan.github.io/2020/03/09/post/">https://hikohikoyan.github.io/2020/03/09/post/</a>
+      永久链接：<a href="https://hikohikoyan.github.io/2020/03/11/post/">https://hikohikoyan.github.io/2020/03/11/post/</a>
     </div>
     <div class="declare">
       版权声明：本文首发于<a href="https://hikohikoyan.github.io">hiko</a>的博客，转载请注明出处！
