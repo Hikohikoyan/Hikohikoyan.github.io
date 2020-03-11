@@ -16,7 +16,7 @@
     <meta name="description" content="Hikoyan">
     
     <title>
-      标签 - Hiko&#39;s Blog
+      blender学习之路 - Hiko&#39;s Blog
     </title>
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
@@ -24,6 +24,11 @@
   </head>
   <body>
     <canvas id="pagemap"></canvas>
+    
+    <div id="post-toc" class="animated hiddenToc hide">
+      <span class="title">Toc</span>
+      <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#从如何编辑开始"><span class="toc-text">从如何编辑开始</span></a></li></ol>
+    </div>
     
     <div id="fixed-menu-wrap">
       <span class="iconfont icon-sousuo search-box menu-reset"></span>
@@ -66,7 +71,7 @@
           分类
         </a>
         
-        <a href="/hiko/tags" class="current">
+        <a href="/hiko/tags" class="">
           标签
         </a>
         
@@ -124,7 +129,7 @@
             分类
           </a>
           
-          <a href="/hiko/tags" class="current">
+          <a href="/hiko/tags" class="">
             标签
           </a>
           
@@ -161,42 +166,147 @@
     </div>
     <div id="container">
       <div class="main animated bounceInRight delay-0.7s">
-        <div id="archives">
-    
-        <div class="title">
-            标签 - Hiko
-        </div>
-    
-
-
-
-
-    
-    
-    <section class="wrap">
-        <div class="meta">
-            <a href="/hiko/archives/2019">
-                2019
-            </a>
-        </div>
-        <div class="year">
-            
-            <article class="item">
-            <a href="/hiko/hello-world/" title="Hiko&#39;Blog (^_-)">
-                <span>2019/02/04</span>
-                <span>Hiko&#39;Blog (^_-)</span>
-            </a>
-            </article>
-            
-    
-        </div>
-    </section>
+        <article class="post-entry">
+    <div class="header">
       
-<div class="paginator">
-    <span class="page-number current">1</span>
-</div>
-</div>
+      <div class="title">blender学习之路</div>
+      <div class="meta">
+        <span class="item">
+          <span class="iconfont icon-time-circle"></span>
+          <span>2020/03/05</span>
+        </span>
 
+        
+          <span class="item leancloud-visitors" id="/hiko/post/" data-flag-title="blender学习之路">
+            <span class="iconfont icon-eye1"></span>
+            <span class="leancloud-visitors-count"></span>
+          </span>
+        
+
+         
+        <span class="item">
+          <span class="iconfont icon-folder"></span>
+          <span>
+              
+                
+                  <a href="/categories/笔记">笔记</a>
+                
+              
+          </span>
+        </span>
+        
+        
+         
+          <span class="item">
+            <span class="iconfont icon-tag1"></span>
+            <span>
+                
+                  
+                    <a href="/tags/Blender">Blender</a>
+                  
+                
+                  
+                    <a href="/tags/建模">建模</a>
+                  
+                
+            </span>
+          </span>
+         
+      </div>
+      <div>
+      </div>
+    </div>
+    <h5 id="从如何编辑开始">从如何编辑开始<a class="post-anchor" href="#从如何编辑开始"></a></h5><p>  其实掌握一门建模软件并不是难事，都是对一个应用的熟悉到熟练的过程吧（虽然我可能没资格说这话） </p>
+<p>  blender的三种编辑模式比较不一样（有可能是因为我建模入门是从最简单的SU开始的，对这个有些膈应）</p>
+<blockquote>
+<p><a href="https://docs.blender.org/manual/zh-hans/2.80/modeling/meshes/structure.html">https://docs.blender.org/manual/zh-hans/2.80/modeling/meshes/structure.html</a>   blender的中文手册  感谢翻译~</p>
+</blockquote>
+<p>三个(三角面)，四个(四边面)或更多(n边面)顶点之间的区域定义为面，每侧都有一条边，通常缩写为 <em>tris，quads ＆ n-gons</em>。</p>
+<p>三角形总是平坦的，因此易于计算。另一方面，四边形 “利于形变”，因此常用于动画和细分建模。</p>
+<p>网格是3D场景中使用的常见物体类型。Blender配有一些 “基本” 网格形状，用户可以之为起点开始建模。编辑模式下，可以在3D游标位置添加基本体。</p>
+<p>这个3D游标一开始使用起来真的很苦恼，尤其是Move的快捷键是G ，我实在不明白为什么是G 而且考虑到快捷键M应该有对应的了（有些教程也不改快捷键）所以就也没有去自定义。</p>
+<p><a href="https://docs.blender.org/manual/zh-hans/2.80/_images/modeling_meshes_selecting_mode-buttons.png" data-caption="../../_images/modeling_meshes_selecting_mode-buttons.png" data-fancybox="images"><img src="https://docs.blender.org/manual/zh-hans/2.80/_images/modeling_meshes_selecting_mode-buttons.png" alt="../../_images/modeling_meshes_selecting_mode-buttons.png"></a></p>
+<p>重要的是blender建模有三种模式，热键分别对应1,2,3（shift多选 ctrl缩减或扩展选择),这个和其他的类似但是实际操作起来有点累（swtcl)</p>
+<p>顶点模式下顶点会被显示为点。<strong>选中</strong>的顶点显示为<strong>橙色</strong>，<strong>未选中</strong>的顶点显示为<strong>黑色</strong>，当前活动的顶点或<strong>最后选择的顶点显示为白色</strong>。</p>
+<p>边模式下顶点不显示。</p>
+<p>不同的是，选中的边显示为橙色，未选中的边显示为黑色，当前活动的边或最后选择的边显示为白色。</p>
+<p>面模式   面将伴随着一个用于对面进行选择的选择点在其中央进行显示。</p>
+<p>选中的面及其选择点显示为橙色，未选中的面显示为黑色，当前激活的面或最后选择的面呈现白色高亮状态。</p>
+<p>对我来说面模式是最接近SU操作的一个了 所以我经常在边模式和面模式中反复切换（</p>
+<p>按下dele键的时候可以选择删除的内容（还有其他操作）  </p>
+<p>刷选前在右侧属性设置好刷子的半径  配合shift ctrl就可以快速选面了</p>
+<blockquote>
+<p>加/减选</p>
+<ul>
+<li><p>扩展选区 Ctrl-数字键盘+</p>
+<p>扩展到当前选择模式下与选中区域相连的区域。</p>
+</li>
+<li><p>缩减选区 Ctrl-数字键盘-</p>
+<p>从当前选择模式下选中区域相连的部分缩减选择。</p>
+</li>
+<li><p>下一活动元素 Shift-Ctrl-数字键盘+</p>
+<p>该功能利用了选择历史来基于环绕拓扑对下一个顶点、边、面进行选择。</p>
+</li>
+<li><p>上一活动元素 Shift-Ctrl-数字键盘-</p>
+<p>选择前一活动元素并取消对最后选择元素的选择状态。</p>
+</li>
+</ul>
+</blockquote>
+
+
+  
+    <div class="post-reward">
+    <div id="reward-button">打赏</div>
+      <div id="qr">
+        <div class="wrap">
+            
+            <div class="bg-wrap">
+              <a href="/hiko/images/zhifubao.png" target="_block" class="bg" style="background-image:url('/images/zhifubao.png')"></a>
+              支付宝
+            </div>
+            
+            
+            <div class="bg-wrap">
+                <a href="/hiko/images/weixin.png" target="_block" class="bg" style="background-image:url('/images/weixin.png')"></a>
+              微信
+            </div>
+            
+        </div>
+      </div>
+    </div>
+  
+  <div class="post-guide">
+    <div class="item left">
+        
+          <a href="/hiko/post/">blender 学习（2）</a>
+        
+    </div>
+    <div class="item right">
+        
+          <a href="/hiko/2-23/">这就是个笔记汇总啦</a>
+        
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="https://hikohikoyan.gitee.io/hiko">hiko</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="https://hikohikoyan.gitee.io/hiko/hiko/post/">https://hikohikoyan.gitee.io/hiko/hiko/post/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="https://hikohikoyan.gitee.io/hiko">hiko</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+  
+</article>
         <footer>
           <div class="copyright">
             ©2020
