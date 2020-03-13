@@ -196,6 +196,7 @@
 <p>部署后再点击居然就变成了↓</p>
 <p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/hexoq1.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/hexoq1.png" alt=""></a></p>
 <p>我觉得应该是yml里root没写对的问题，也可能是之前prettyurl时设置了隐藏后缀.html，网上搜了很久似乎没看到类似问题</p>
+<p>检查了配置后康到url后有仓库名 gitee.io/foo 然后root我写的是/这样子会出错，但是我gitee仓库确实有foo的仓库名（导入的github仓嘛），删掉仓库名后恢复正常了，但并没有明白原因2333（反正一定是路由的问题 hexo deploy的部署路由设置有问题（但我明明都设对的？）</p>
 
 
   
