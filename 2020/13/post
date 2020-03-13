@@ -16,7 +16,7 @@
     <meta name="description" content="Hikoyan">
     
     <title>
-      计网笔记*N - Hiko&#39;s Blog
+      JAVA EVERYDAY - Hiko&#39;s Blog
     </title>
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
@@ -24,11 +24,6 @@
   </head>
   <body>
     <canvas id="pagemap"></canvas>
-    
-    <div id="post-toc" class="animated hiddenToc hide">
-      <span class="title">Toc</span>
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#中间件？集群？（同种-物理本地）-网格？（异构）"><span class="toc-text">中间件？集群？（同种 物理本地） 网格？（异构）</span></a></li></ol>
-    </div>
     
     <div id="fixed-menu-wrap">
       <span class="iconfont icon-sousuo search-box menu-reset"></span>
@@ -169,15 +164,15 @@
         <article class="post-entry">
     <div class="header">
       
-      <div class="title">计网笔记*N</div>
+      <div class="title">JAVA EVERYDAY</div>
       <div class="meta">
         <span class="item">
           <span class="iconfont icon-time-circle"></span>
-          <span>2020/03/11</span>
+          <span>2020/03/13</span>
         </span>
 
         
-          <span class="item leancloud-visitors" id="/2020/03/11/post" data-flag-title="计网笔记*N">
+          <span class="item leancloud-visitors" id="/2020/13/post" data-flag-title="JAVA EVERYDAY">
             <span class="iconfont icon-eye1"></span>
             <span class="leancloud-visitors-count"></span>
           </span>
@@ -206,7 +201,7 @@
                   
                 
                   
-                    <a href="/tags/计算机网络">计算机网络</a>
+                    <a href="/tags/JAVA">JAVA</a>
                   
                 
             </span>
@@ -216,20 +211,21 @@
       <div>
       </div>
     </div>
-    <blockquote>
-<p>通信原理→网络 概念扩展→</p>
-</blockquote>
-<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/jsjwl.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/jsjwl.png" alt=""></a></p>
-<p>划重点：自主  独立自主性    资源 资源标识  传输协议</p>
-<p>DT设备（自主设备）       </p>
-<p>PSTM公用电话交换网络</p>
-<h4 id="中间件？集群？（同种-物理本地）-网格？（异构）">中间件？集群？（同种 物理本地） 网格？（异构）<a class="post-anchor" href="#中间件？集群？（同种-物理本地）-网格？（异构）"></a></h4><p>中间件也是一种软件，MID WARE</p>
-<p>集群就相当于是同构计算，设备基本相同时就互相连接起来，（刀片计算机)</p>
-<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/bs1.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/bs1.png" alt=""></a></p>
-<p>古建筑未曾布线的建筑内的网络是<strong>无线网络</strong>，<strong>不是</strong>移动网络</p>
-<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/wxyd.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/wxyd.png" alt=""></a></p>
-<p>互通就代表着协议  互操作就代表着理念相通</p>
-<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/hu.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/hu.png" alt=""></a></p>
+    <p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/java0.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/java0.png" alt=""></a></p>
+<p>java是一个纯粹的面向对象的语言</p>
+<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/java1.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/java1.png" alt=""></a></p>
+<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/java2.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/java2.png" alt=""></a></p>
+<p>.java文件执行前需要编译为字节码才能运行，和C C++不同的是java文化源代码编译后并不是可以直接在机器上执行的机器码，因此不同平台需要不同平台的编译器，而java则生成的是与平台无关的字节码，需要java虚拟机（JVM）</p>
+<p>eclipse:<a href="https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2019-12/R/eclipse-inst-win64.exe">https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2019-12/R/eclipse-inst-win64.exe</a></p>
+<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/java3.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/java3.png" alt=""></a></p>
+<p>命令行模式里：在cmd里 javac +*.java  编译 </p>
+<p>运行：java *(.class)</p>
+<p>main函数写法形如下↓</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined">public class App<br>&#123;<br>  public static(类方法) void main(String args[])<br>  &#123;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>simpleinput</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs undefined">import java.io.*;<br>public class simpleinput&#123;<br>  public static void main(String args[]) throws IOException&#123;<br>  String s;<br>  BufferedReader ir;<br>  ir=new BufferdReader( new InputStreamReader(System.in));<br>  s=ir.readline();<br>  System.out.println(&quot;Input is:&quot;+s);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>害就是个基础课（摸鱼了好久233333</p>
+<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200313213112.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200313213112.png" alt=""></a></p>
 
 
   
@@ -259,7 +255,7 @@
     </div>
     <div class="item right">
         
-          <a href="/2020/03/09/post">操作系统笔记*N</a>
+          <a href="/2020/11/post">计网笔记*N</a>
         
     </div>
   </div>
@@ -271,7 +267,7 @@
       本文作者：<a href="https://hikohikoyan.gitee.io/hiko">hiko</a>
     </div>
     <div class="link">
-      永久链接：<a href="https://hikohikoyan.gitee.io/hiko/2020/03/11/post">https://hikohikoyan.gitee.io/hiko/2020/03/11/post</a>
+      永久链接：<a href="https://hikohikoyan.gitee.io/hiko/2020/13/post">https://hikohikoyan.gitee.io/hiko/2020/13/post</a>
     </div>
     <div class="declare">
       版权声明：本文首发于<a href="https://hikohikoyan.gitee.io/hiko">hiko</a>的博客，转载请注明出处！
