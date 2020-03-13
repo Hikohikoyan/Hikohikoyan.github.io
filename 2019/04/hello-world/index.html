@@ -16,7 +16,7 @@
     <meta name="description" content="Hikoyan">
     
     <title>
-      操作系统笔记*N - Hiko&#39;s Blog
+      Hiko&#39;Blog (^_-) - Hiko&#39;s Blog
     </title>
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
@@ -24,11 +24,6 @@
   </head>
   <body>
     <canvas id="pagemap"></canvas>
-    
-    <div id="post-toc" class="animated hiddenToc hide">
-      <span class="title">Toc</span>
-      <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#就把这里当做复习营地了"><span class="toc-text">就把这里当做复习营地了</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#第一章"><span class="toc-text">第一章</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#发展历史"><span class="toc-text">发展历史</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#总线（Bus"><span class="toc-text">总线（Bus)</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#用户视图（四层）"><span class="toc-text">用户视图（四层）</span></a>
-    </li></ol></li></div>
     
     <div id="fixed-menu-wrap">
       <span class="iconfont icon-sousuo search-box menu-reset"></span>
@@ -169,15 +164,15 @@
         <article class="post-entry">
     <div class="header">
       
-      <div class="title">操作系统笔记*N</div>
+      <div class="title">Hiko'Blog (^_-)</div>
       <div class="meta">
         <span class="item">
           <span class="iconfont icon-time-circle"></span>
-          <span>2020/03/09</span>
+          <span>2019/02/04</span>
         </span>
 
         
-          <span class="item leancloud-visitors" id="/2020/09/post" data-flag-title="操作系统笔记*N">
+          <span class="item leancloud-visitors" id="/2019/04/hello-world/" data-flag-title="Hiko'Blog (^_-)">
             <span class="iconfont icon-eye1"></span>
             <span class="leancloud-visitors-count"></span>
           </span>
@@ -189,7 +184,7 @@
           <span>
               
                 
-                  <a href="/categories/笔记">笔记</a>
+                  <a href="/categories/介绍">介绍</a>
                 
               
           </span>
@@ -202,11 +197,7 @@
             <span>
                 
                   
-                    <a href="/tags/计科">计科</a>
-                  
-                
-                  
-                    <a href="/tags/操作系统">操作系统</a>
+                    <a href="/tags/Hiko">Hiko</a>
                   
                 
             </span>
@@ -216,27 +207,13 @@
       <div>
       </div>
     </div>
-    <h6 id="就把这里当做复习营地了">就把这里当做复习营地了<a class="post-anchor" href="#就把这里当做复习营地了"></a></h6><h3 id="第一章">第一章<a class="post-anchor" href="#第一章"></a></h3><p><a href="https://s2.ax1x.com/2020/03/09/89HMtA.png" data-caption="89HMtA.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89HMtA.png" alt="89HMtA.png"></a></p>
-<p>基础之基础图↑  分层体系结构</p>
-<p>其中下面三部分（硬件）属于计算机组成原理的内容</p>
-<p>上层使用下层的服务，下层提供上层的服务接口，（通过服务接口调用），服务提供者和服务消费者。</p>
-<p>操作系统是唯一的（唯一性），和硬件交互的唯一的<strong>软件</strong>（在现代操作系统中 为了安全性）就只有操作系统。其他所有软件都不能绕过操作系统。是唯一运行在核心太模式 内核的软件（kernel status) （老师念成了可乐四忒特四）</p>
-<p>将复杂硬件调用接口简化、整合、抽象为一个更简单的调用方式（具体的系统抽象化  硬件软件化）</p>
-<p>其他软件（包括系统软件 如编译器）则运行在用户太。</p>
-<p>系统调用以区别于普通的过程调用</p>
-<h5 id="发展历史">发展历史<a class="post-anchor" href="#发展历史"></a></h5><p><a href="https://s2.ax1x.com/2020/03/09/89H1pt.png" data-caption="89H1pt.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89H1pt.png" alt="89H1pt.png"></a></p>
-<p><strong>组成原理简图</strong>（冯洛伊曼）</p>
-<p>CPU &amp;memory +I/O 设备 （外存属于I/0) </p>
-<h6 id="总线（Bus">总线（Bus)<a class="post-anchor" href="#总线（Bus"></a></h6><p><a href="https://s2.ax1x.com/2020/03/09/89H86f.png" data-caption="89H86f.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89H86f.png" alt="89H86f.png"></a></p>
-<p>PC指针  program counter 程序计数器，寻址单位是字节，最小单位是比特。Memory是唯一和CPU配合的，CPU不能直接到硬盘（I/O外围存储设备）拉取运行文件，需要先调入内存中。</p>
-<p><a href="https://s2.ax1x.com/2020/03/09/89HQfI.png" data-caption="89HQfI.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89HQfI.png" alt="89HQfI.png"></a></p>
-<p><a href="https://s2.ax1x.com/2020/03/09/89H31P.png" data-caption="89H31P.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89H31P.png" alt="89H31P.png"></a></p>
-<h5 id="用户视图（四层）">用户视图（四层）<a class="post-anchor" href="#用户视图（四层）"></a></h5><p><a href="https://s2.ax1x.com/2020/03/09/89HKkd.png" data-caption="89HKkd.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89HKkd.png" alt="89HKkd.png"></a></p>
-<p>BIOS（不使用操作系统的软件） 因此没有安装操作系统的计算机系统可以运行程序，有不使用操作系统的软件（嵌入式软件）</p>
-<p><a href="https://s2.ax1x.com/2020/03/09/89HGX8.png" data-caption="89HGX8.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89HGX8.png" alt="89HGX8.png"></a></p>
-<p><a href="https://s2.ax1x.com/2020/03/09/89HYnS.png" data-caption="89HYnS.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89HYnS.png" alt="89HYnS.png"></a></p>
-<p><a href="https://s2.ax1x.com/2020/03/09/89Ht0g.png" data-caption="89Ht0g.png" data-fancybox="images"><img src="https://s2.ax1x.com/2020/03/09/89Ht0g.png" alt="89Ht0g.png"></a></p>
-<p>GUI命令接口 </p>
+    <p>Welcome ! </p>
+<p>终于在情人节这天把所有的博客需要的配置啊、搞坏掉的自己的仓库和在返校前想边改代码shit山边吃掉的小零食都准备完毕了，✿✿ヽ(°▽°)ノ✿</p>
+<p>整理一下这几天的成果大概就是，学会了各种编辑器、mysql等等命令行中如何退出的方法，靠着东撞西撞瞎搞乱搞的摸鱼方式弄好了这个博客（完全没弄好）。总之 简单md一些可能以后也需要回过头来咀嚼的知♂识，顺便充实首页头版文章（看上去很丰富的样子），毕竟平时不怎么习惯网上分享什么心得什么感悟，要写的话就长篇大论还会陷入丧气的咸鱼状态就，不了不了。</p>
+<p>首先是买的辣鸡腾讯的服务器，一开始装了centos，啊然后因为学习后续内容的时候要康教程啊，教程都是apt-get，虽然也有很多yum的……反正就是为了一致（放弃思考）就干脆从控制台那重装了系统。诶装LNMP的时候其实，虽然看到有一键脚本但是…（种种原因一切都手动配置了 大概花了两三天吧 25 X 3 hours)。手动配置的过程 其实很有意思，一开始接触vim的时候，诶第一次vim file 可能手抖打错文件名了，是个新文件，瞬间一脸懵也不知道怎么退出（虽然百度得到可是，我不知道要搜vim编辑器  我以为是突然什么东西…），还在insert的状态下打了：wq就很气了。</p>
+<p>装php的时候，因为php更新了，但是2018年的教程仍然是php7.0，所以修改文件的时候经常找不到conf，然后一点点cd ..才发现 文件夹都 只有一个7.2 算了都是些沙雕操作。 mysql的一键安装似乎是没有给root加密码的，我记得我设过啊？反正直接重新创了一个blog用户 sudo进去给它加了权限，把时间花在这些上确实有点浪费，却也算是学到很多了。</p>
+<p>接下来是1 修改PHP 登录注册的安全性问题还没好好做完呢，虽然hexo提供了插件，应该可以直接用多说之类的，一想到这好歹算是个必修能力，还是老老实实借了本书回来慢慢研究。2 页面美化  banner的图知道尺寸以后 打算去ai直接画一个自己的（弄完php还有时间的话）  虽然hexo的主页是↑←这样已经很不错的简约模板，出于学习的目的（而且也不是很明白ejs） 在留言板的页面中skip_layout了，嘛还有很多要做。</p>
+<p>大年初十过得这么有意义真是よかった。</p>
 
 
   
@@ -263,12 +240,10 @@
   <div class="post-guide">
     <div class="item left">
         
-          <a href="/2020/11/post">计网笔记*N</a>
+          <a href="/2019/23/2-23/">这就是个笔记汇总啦</a>
         
     </div>
     <div class="item right">
-        
-          <a href="/2020/06/post">blender 学习（2）</a>
         
     </div>
   </div>
@@ -277,13 +252,13 @@
 
   <div class="post-copyright">
     <div class="auth">
-      本文作者：<a href="https://hikohikoyan.gitee.io/hiko">hiko</a>
+      本文作者：<a href="https://hikohikoyan.gitee.io">hiko</a>
     </div>
     <div class="link">
-      永久链接：<a href="https://hikohikoyan.gitee.io/hiko/2020/09/post">https://hikohikoyan.gitee.io/hiko/2020/09/post</a>
+      永久链接：<a href="https://hikohikoyan.gitee.io/2019/04/hello-world/">https://hikohikoyan.gitee.io/2019/04/hello-world/</a>
     </div>
     <div class="declare">
-      版权声明：本文首发于<a href="https://hikohikoyan.gitee.io/hiko">hiko</a>的博客，转载请注明出处！
+      版权声明：本文首发于<a href="https://hikohikoyan.gitee.io">hiko</a>的博客，转载请注明出处！
     </div>
   </div>
 
@@ -295,7 +270,7 @@
         <footer>
           <div class="copyright">
             ©2020
-            <a href="https://hikohikoyan.gitee.io/hiko">hiko</a> Powered by <a href="https://hexo.io">Hexo</a> |
+            <a href="https://hikohikoyan.gitee.io">hiko</a> Powered by <a href="https://hexo.io">Hexo</a> |
             <a href="https://github.com/shixiaohu2206/hexo-theme-huhu">hexo-theme-huhu</a>
           </div>
           
