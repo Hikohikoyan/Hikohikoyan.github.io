@@ -222,6 +222,48 @@
     </div>
     <p>[TOC]</p>
 <hr>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#ubuntu-zhi-ling-list">Ubuntu指令 LIst</a><ul>
+<li><a href="#chang-yong-zhi-ling">常用指令</a><ul>
+<li><a href="#notes">Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chang-yong-git-ming-ling">常用 Git 命令</a><ul>
+<li><a href="#1-xin-jian-dai-ma-ku">1.新建代码库</a></li>
+<li><a href="#2-pei-zhi">2.配置</a></li>
+<li><a href="#3-zeng-shan-gai">3.增删改</a></li>
+<li><a href="#4-fen-zhi">4.分支</a></li>
+<li><a href="#5-biao-qian-tag">5.标签tag</a></li>
+<li><a href="#6-bian-hua-li-shi-cha-xun">6.变化历史查询</a></li>
+</ul>
+</li>
+<li><a href="#mysql-chuang-jian-shu-ju-ku">MYSQL 创建数据库</a><ul>
+<li><a href="#4-2-xian-shi-shu-ju-ku">4.2 显示数据库</a></li>
+<li><a href="#4-3-shan-chu-shu-ju-ku">4.3 删除数据库</a></li>
+<li><a href="#4-4-lian-jie-shu-ju-ku">4.4 连接数据库</a></li>
+<li><a href="#4-5-dang-qian-xuan-ze-de-shu-ju-ku">4.5 当前选择的数据库</a></li>
+<li><a href="#5-1-chuang-jian-shu-ju-biao">5.1 创建数据表</a></li>
+<li><a href="#5-3-shan-chu-shu-ju-biao">5.3 删除数据表</a></li>
+<li><a href="#5-4-biao-cha-ru-shu-ju">5.4 表插入数据</a></li>
+<li><a href="#5-5-cha-xun-biao-zhong-de-shu-ju">5.5 查询表中的数据</a></li>
+<li><a href="#5-6-shan-chu-biao-zhong-shu-ju">5.6 删除表中数据</a></li>
+<li><a href="#5-7-xiu-gai-biao-zhong-shu-ju">5.7 修改表中数据</a></li>
+<li><a href="#5-8-zeng-jia-zi-duan">5.8 增加字段</a></li>
+<li><a href="#5-9-xiu-gai-biao-ming">5.9 修改表名</a></li>
+<li><a href="#6-bei-fen-shu-ju-ku">6、备份数据库</a></li>
+<li><a href="#7-1-yi-ge-jian-ku-he-jian-biao-de-shi-li-1">7.1 一个建库和建表的实例1</a></li>
+<li><a href="#7-2-yi-ge-jian-ku-he-jian-biao-de-shi-li-2">7.2 一个建库和建表的实例2</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+</div>
+
 <h2><span id="ubuntu-zhi-ling-list">Ubuntu指令 LIst</span><a href="#ubuntu-zhi-ling-list" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h2><h3><span id="chang-yong-zhi-ling">常用指令</span><a href="#chang-yong-zhi-ling" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs undefined">pwd      当前工作目录               pwd<br>ls       当前目录内容(list)         ls<br>mkdir    创建目录(makedir)         mkdir books<br>cd       进入目录                  cd books<br>touch    生成空文件                touch book.txt<br>echo     带内容的文件              echo &quot;内容&quot; &gt; book.txt<br>cp       拷贝文件（copy）          cp book.txt book.txt.bak<br>rm       删除文件（remove）        rm -r（删除所有文件）/-f（强制删除） book.txt<br>rm -rf +foldername 删除文件夹 <br>rmdir    删除空目录                rmdir 空目录<br>mv       移动文件（move）          mv 原文件 目标位置<br>mv       重命名                    mv a.txt b.txt<br>find     查找文件                  find [指定目录] -name 文件名<br>grep     查找指定文件里的内容      grep &quot;是否有包含内容&quot; book.txt<br>wc       统计文本的行数字符数      wc book.txt<br>tree     树状目录                  tree<br>ln       建立软链接（link）        ln -s 目标目录 链接目录（快捷方式）<br>cat      查看文件内容              cat book.txt<br>more     分页显示文件内容<br>less     分页显示文件内容<br>head     显示文本开头内容<br>tail     显示文件内容结尾内容<br>vim编辑器： ：wq保存并退出 ：q直接退出 ：/搜索+要搜寻的字符串 （按n 下一个匹配的字符<br></code></pre></td></tr></table></figure>
 <h4><span id="notes">Notes</span><a href="#notes" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><p>-s 是代号（symbolic）的意思  </p>
 <p>ln命令会保持每一处链接文件的同步性——不论你改动了哪一处，其它的文件都会发生相同的变化；</p>
