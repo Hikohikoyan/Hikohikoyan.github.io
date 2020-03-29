@@ -27,7 +27,7 @@
     
     <div id="post-toc" class="animated hiddenToc hide">
       <span class="title">Toc</span>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text">第一章#</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">发展历史#</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">总线（Bus)#</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">用户视图（四层）#</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">操作系统的类型#</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">处理器#</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">中断#</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">第一章习题#</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">第二章#</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text">第一章#</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">发展历史#</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">总线（Bus)#</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">用户视图（四层）#</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">操作系统的类型#</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">处理器#</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">中断#</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">中断响应处理与指令执行周期#</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">操作系统内核分类#</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">C/S模型#</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">哑终端&amp;伪终端&amp;虚拟&amp;远程#</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">三类操作系统（分时 实时 批处理#</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">第一章习题#</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text">第二章#</span></a></li>
     </div>
     
     <div id="fixed-menu-wrap">
@@ -230,12 +230,17 @@
 <li><a href="#cao-zuo-xi-tong-de-lei-xing">操作系统的类型</a></li>
 <li><a href="#chu-li-qi">处理器</a></li>
 <li><a href="#zhong-duan">中断</a><ul>
-<li><a href="#di-yi-zhang-xi-ti"><strong>第一章习题</strong></a></li>
+<li><a href="#zhong-duan-xiang-ying-chu-li-yu-zhi-ling-zhi-xing-zhou-qi">中断响应处理与指令执行周期</a></li>
+</ul>
+</li>
+<li><a href="#cao-zuo-xi-tong-nei-he-fen-lei">操作系统内核分类</a></li>
+<li><a href="#c-s-mo-xing">C/S模型</a></li>
+<li><a href="#ya-zhong-duan-wei-zhong-duan-xu-ni-yuan-cheng">哑终端&amp;伪终端&amp;虚拟&amp;远程</a></li>
+<li><a href="#san-lei-cao-zuo-xi-tong-fen-shi-shi-shi-pi-chu-li">三类操作系统（分时 实时 批处理</a></li>
+<li><a href="#di-yi-zhang-xi-ti">第一章习题</a></li>
 </ul>
 </li>
 <li><a href="#di-er-zhang">第二章</a></li>
-</ul>
-</li>
 </ul>
 <!-- tocstop -->
 </div>
@@ -280,55 +285,111 @@
 <p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/image-20200316201934938.png" data-caption="image-20200316201934938" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/image-20200316201934938.png" alt="image-20200316201934938"></a></p>
 <p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/image-20200316201945373.png" data-caption="image-20200316201945373" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/image-20200316201945373.png" alt="image-20200316201945373"></a></p>
 <p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/image-20200316202109592.png" data-caption="image-20200316202109592" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/image-20200316202109592.png" alt="image-20200316202109592"></a></p>
-<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/中断装置.png" data-caption="image-20200316202126485" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/中断装置.png" alt="image-20200316202126485"></a></p>
+<h4><span id="zhong-duan-xiang-ying-chu-li-yu-zhi-ling-zhi-xing-zhou-qi">中断响应处理与指令执行周期</span><a href="#zhong-duan-xiang-ying-chu-li-yu-zhi-ling-zhi-xing-zhou-qi" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/中断装置.png" data-caption="image-20200316202126485" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/中断装置.png" alt="image-20200316202126485"></a></p>
 <p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/中断控制器.png" data-caption="image-20200316202139500" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/中断控制器.png" alt="image-20200316202139500"></a></p>
 <p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/陷阱.png" data-caption="image-20200316202153478" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/陷阱.png" alt="image-20200316202153478"></a></p>
 <p>程序状态字(PSW)是用来控制指令执行顺序并且保留和指示与程序有关的系统状态。一般包括三部分内容：程序基本状态(指令地址、条件码、管目态位等)；中断码；中断屏蔽位，所以选择B、C、D。每个程序都有一个程序状态字，但整个系统设置一个程序状态字寄存器，存放当前正在运行程序的程序状态字。</p>
 <p>计算机系统都有自己的指令系统，在多道程序设计系统中，指令系统分为特权指令与非特权指令。特权指令仅能由操作系统使用，如设置时钟、清内存等为特权指令；其他指令为非特权指令，用户只能使用非特权指令。<br>若中央处理机处于目态，仅可以执行非特权指令，在备选答案中，读系统时钟、读用户内存自身数据都属于非特权指令，它们的执行不会构成对系统的破坏，而清除整个内存，则可能造成对系统的破坏，所以在目态下不能执行，只能在管态下执行。</p>
 <p>用户与<a href="https://www.baidu.com/s?wd=操作系统&amp;tn=SE_PcZhidaonwhc_ngpagmjz&amp;rsv_dl=gh_pc_zhidao">操作系统</a>的接口有：<br>1、程序一级的系统调用；<br>2、命令解释和键盘命令；<br>3、联机或交互式用户的接口；<br>4、脱机或批处理用户的接口E用户内部和外部命令。</p>
-<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323194239.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323194239.png" alt=""></a></p>
+<h2><span id="cao-zuo-xi-tong-nei-he-fen-lei">操作系统内核分类</span><a href="#cao-zuo-xi-tong-nei-he-fen-lei" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h2><p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323194239.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323194239.png" alt=""></a></p>
 <p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323194337.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323194337.png" alt=""></a></p>
-<p>微内核↑</p>
+<h2><span id="c-s-mo-xing">C/S模型</span><a href="#c-s-mo-xing" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h2><p>微内核↑</p>
 <p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323194547.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323194547.png" alt=""></a></p>
 <p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323195202.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323195202.png" alt=""></a></p>
-<p>哑终端（早期</p>
+<h2><span id="ya-zhong-duan-amp-wei-zhong-duan-amp-xu-ni-amp-yuan-cheng">哑终端&amp;伪终端&amp;虚拟&amp;远程</span><a href="#ya-zhong-duan-amp-wei-zhong-duan-amp-xu-ni-amp-yuan-cheng" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h2><p>哑终端（早期</p>
 <p>任何一个终端要靠主机回显  没有处理能力 只有键盘↑</p>
 <p>伪终端  ←为保证可兼容性 将有处理能力的终端适配哑终端</p>
-<p>虚拟终端（图形终端）→有GUI界面 通过软件来模拟终端（没有实</p>
-<p>际终端</p>
+<p>虚拟终端（图形终端）→有GUI界面 通过软件来模拟终端（没有实际终端</p>
 <p>远程终端 telnet SSH </p>
 <p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323204646.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323204646.png" alt=""></a></p>
-<h3><span id="di-yi-zhang-xi-ti"><strong>第一章习题</strong></span><a href="#di-yi-zhang-xi-ti" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p><strong>1.操作系统的两大主要作用是什么</strong></p>
+<h2><span id="san-lei-cao-zuo-xi-tong-fen-shi-shi-shi-pi-chu-li">三类操作系统（分时 实时 批处理</span><a href="#san-lei-cao-zuo-xi-tong-fen-shi-shi-shi-pi-chu-li" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h2><table>
+<thead>
+<tr>
+<th>What操作系统</th>
+<th>特点</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>批处理系统</td>
+<td>适用于计算量大，不需要和用户交互的大型作业。</td>
+<td><strong>脱机、多道和成批处理</strong></td>
+</tr>
+<tr>
+<td>分时系统</td>
+<td>交互性强的多用户系统</td>
+<td><strong>多路性、交互性、独占性和及时性</strong></td>
+</tr>
+<tr>
+<td>实时系统</td>
+<td>事件驱动，较少有人为干预的监督和控制系统</td>
+<td><strong>及时性和高可靠性</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>脱机</strong>是指用户脱机使用计算机，即用户提交作业之后直到获得结果之前几乎不再和计算机打交道。</p>
+<p><strong>多道</strong>是指多道程序运行，即按多道程序设计的调度原则，从一批后备作业中选取多道作业调入内存并组织它们运行；</p>
+<p><strong>成批处理</strong>是指操作员把用户提交的作业组织成一批，由操作系统负责每批作业间的自动调度。<br>　　批处理系统自动化程度比较高，系统吞吐量大，资源利用率高，系统开销小，但各作业周转时间长，不提供用户与系统的交互手段，适合大的成熟的作业。</p>
+<p>批处理和分时是以作业为单位进行处理的系统，是一个通用系统。 </p>
+<hr>
+<p>分时操作系统是一个专用系统，随机处理发生的外部事件，具有实时性、高度的安全可靠性，提供用户有限的人机交互，系统利用率比批处理差。 </p>
+<p>分时系统中区别于批处理系统的是，作业不应该先进入磁盘，再调入内存。而应该直接进入内存。其次，批处理系统中为一个作业长期占用处理机，直至它运行结束或者是出现I/O请求时，方才用处理机来处理其他作业，从而调度其他作业运行</p>
+<p><strong>多路性</strong>是指一台计算机与若干台终端相连接，终端上的这些用户可以同时或基本同时使用计算机；</p>
+<p><strong>交互性</strong>是指用户的操作方式是联机方式，即用户通过终端采用人-机会话的方式直接控制程序运行，同程序进行交互；</p>
+<p><strong>独占性</strong>是指由于系统采用时间片轮转的办法使一台计算机同时为许多终端用户服务，因此客观效果是这些用户彼此间都感觉不到别人也在使用这台计算机，好像只有自己独占计算机一样；</p>
+<p><strong>及时性</strong>是指用户请求能在很短时间内获得响应。 </p>
+<hr>
+<p><strong>实时系统的及时性</strong>是指系统能及时响应外部事件的请求，并在规定时间内完成对该事件的处理；</p>
+<p><strong>高可靠性</strong>是指系统本身要安全可靠，因为像生产过程的实时控制、航空订票等实时事务系统，信息处理的延误或丢失往往会带来不堪设想的后果。</p>
+<p>实时系统虽然也需要交互性，但是实时系统中，人与系统的交互仅限于访问系统中某些特定的专用服务程序。而分时系统能够向终端用户提供数据处理和资源共享等服务。</p>
+<p>可靠性：实时系统中要求系统具有高度的可靠性。因为任何差错都可能带来巨大的经济损失。实时系统中往往采用多级容错机制来保障系统的安全性及数据的安全性。</p>
+<p> 因此可靠性：实时系统&gt;分时系统。</p>
+<h2><span id="di-yi-zhang-xi-ti">第一章习题</span><a href="#di-yi-zhang-xi-ti" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h2><p><strong>1.操作系统的两大主要作用是什么</strong></p>
 <p>一是作为扩展机器为用户与底层硬件交互提供可扩展的抽象，二是作为资源管理者，为应用程序提供基本的<strong>资源集的清晰抽象</strong></p>
 <p>（另一种说法：操作系统给用户提供了一个可扩展的机器。个人理解是通过对底层的抽象，对外提供各种接口支持扩展） 2.管理各种软硬件资源</p>
 <p><strong>2.分时系统和多道程序系统的区别是什么</strong></p>
 <p>在<strong>分时系统</strong>中，多个用户可以使用他们自己的终端同时访问和执行计算系统上的计算。 多道程序设计系统允许用户同时运行多个程序。 <strong>所有分时系统都是多道程序设计系统，但并非所有多道程序设计系统都是分时系统</strong>，因为多道程序设计系统可以在只有一个用户的PC上运行。</p>
 <p><strong>10.内核态和用户态有哪些区别？解释在设计操作系统时存在两种不同的模式有什么帮助。</strong></p>
 <p>大多数现代CPU提供两种执行模式：内核态和用户态。管态下可以执行其指令集中的每条指令，并使用硬件的各种功能。 但是用户态只能执行部分指令，执行时仅使用部分功能。 拥有两种模式允许设计人员以用户态运行用户程序，从而拒绝他们访问关键指令。</p>
-<p><strong>12、下面ACD条指令只能在内核态使用？</strong></p>
+<p><strong>12、下面ACD条指令只能在内核态使用</strong></p>
 <p>a 禁止所有的中断  b 读日期-时间时钟</p>
 <p><strong>c 设置日期-时间时钟</strong>  d 改变存储器映像</p>
 <p>13、考虑一个有两个CPU的系统，且每一个CPU有两个线程（超线程）。假设有三个程序P0、P1、P2，分别以运行时间5ms, 10ms,20ms开始，运行这些程序需要多少时间？假设这三个程序都是100%限于CPU，在运行时无阻赛，并且一旦设定就不改变CPU。</p>
 <p>答： 完成这些程序的执行可能需要20,25或30毫秒，具体取决于操作系统如何安排它们。 如果P0和P1在同一个CPU上进行调度，而P2在另一个CPU上进行调度，则需要20毫秒。 如果P0和P2安排在同一个CPU上并且P1安排在另一个CPU上，则需要25毫秒。 如果P1和P2安排在同一个CPU上并且P0安排在另一个CPU上，则需要30毫秒。 如果所有三个都在同一个CPU上，则需要35毫秒。</p>
 <p>14、一台计算机有一个四级流水线，每一级都花费相同的时间执行其工作，即1ns, 这台机器每秒可执行多少条指令？</p>
 <p>答：每一纳秒的指令都从管道中出现。 这意味着机器每秒执行10亿条指令。 根本没关系管道有多少个阶段。 每级1 nsec的10级流水线每秒也会执行10亿条指令。 重要的是完成的指令弹出管道末端的频率。</p>
-<p>15.假设一个计算机系统有高速缓存、内存以及磁盘，操作系统用呼你内存。读取缓存中的一个词需要1ns, 内存需要10ns, 磁盘需要10ms。如果缓存命中率是95%， 内存的是99%（缓存失效时），读取一个词的平均时间是多少？</p>
-<p>答：平均访问时间=<br>0.95×1 nsec（词在缓存中）</p>
+<p>15.假设一个计算机系统有高速缓存、内存以及磁盘，操作系统用虚拟内存。读取缓存中的一个词需要1ns, 内存需要10ns, 磁盘需要10ms。如果缓存命中率是95%， 内存的是99%（缓存失效时），读取一个词的平均时间是多少？</p>
+<p>平均时间 就是各种可能性的加权平均，</p>
 <ul>
-<li>0.05×0.99×10 nsec（词在RAM中，但不在缓存中）</li>
-<li>0.05×0.01×10,000,000 nsec（仅限磁盘上的词）<br>= 5001.445纳秒<br>=5.001445μsec</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined">平均访问时间=95% * 1ns +99%* (1-95%) * 10ns + (1 - 95%) * (1 - 99%) * 10ms<br>0.95×1 nsec（词在缓存中）<br>+ 0.05×0.99×10 nsec（词在RAM中，但不在缓存中）<br>+ 0.05×0.01×10,000,000 nsec（仅限磁盘上的词）<br>  = 5001.445纳秒<br>  =5.001445μsec<br></code></pre></td></tr></table></figure>
+<p>缓存命中读缓存<br>缓存不命中尝试读内存 内存命中读内存<br>内存还不命中就只能读磁盘了</p>
+<p>翻译可能不太好 但是中文语境都是这样的<br>实际上每一层都是一个缓存</p>
+<p>内存是一层缓存 cache又是一层靠近cpu的缓存 每往上一级速度快一或多个数量级</p>
+<p>最靠近cpu的有三层cache 是在cpu内部的<br>然后是memory 也就是平常说的内存<br>最后是磁盘disk 虽然最慢但是写入以后不会丢失<br>前面几个一旦断电了就全没了</p>
+<blockquote>
+<p>比如磁盘有数据 1234567<br>我在内存放了12345<br>缓存里面又有内存的123</p>
+<p>那我123只要读缓存<br>45读内存<br>67就只能去磁盘读</p>
+</blockquote>
+</li>
 </ul>
-<p>16.在用户程序进行一个系统调用，以读写磁盘文件时，该程序提供指示说明了所需要的文件，一个指向数据缓冲区的指针以及计数。然后，控制权转给操作系统，它调用相关的驱动程序。假设驱动程序启动磁盘并且直到中断发生才终止。在从磁盘读的情况下，很明显，调用者会被阻塞（因为文件中没有数据）。在向磁盘写时会发生什么情况？需要把调用者阻塞一直等到磁盘传送完成为止吗？</p>
-<p>答：也许。如果调用者取回控制，并且在最终发生写操作时立即重写数据，将会写入错误的数据。然而，如果驱动程序在返回之前首先复制将数据复制到一个专用的缓冲器，那么调用者可以立即继续执行。另一个可能性是允许调用者继续，并且在缓冲器可以再用时给它一个信号，但是这需要很髙的技巧，而且容易出错。</p>
+<p>16.在用户程序进行一个系统调用，以读写磁盘文件时，该程序提供指示说明了所需要的文件，<strong>一个指向数据缓冲区的指针</strong>以及计数。然后，控制权转给操作系统，它调用相关的驱动程序。<strong>假设驱动程序启动磁盘并且直到中断发生才终止。</strong>在从磁盘读的情况下，很明显，调用者会被阻塞（因为文件中没有数据）。在向磁盘写时会发生什么情况？需要把调用者阻塞一直等到磁盘传送完成为止吗？【这个传送完成似乎是翻译的锅 “写完数据”？】</p>
+<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200329135928.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200329135928.png" alt=""></a></p>
+<blockquote>
+<p>如果调用者取回控制，并且在最终发生写操作时立即重写数据，将会写入错误的数据。然而，如果驱动程序在返回之前首先复制将数据复制到一个专用的缓冲器，那么调用者可以立即继续执行。另一个可能性是允许调用者继续，并且在缓冲器可以再用时给它一个信号，但是这需要很髙的技巧，而且容易出错。</p>
+</blockquote>
+<p>我的理解就是：参考教科书的上图。意思是 本来 调用者已经在执行写的指令了 然后被阻塞的因为要等系统把数据写进去，然后调用者突然改了数据？缓冲区的数据就丢失了源，在进行从缓冲区复制到文件的写过程中系统就会报错，因为数据丢失了？这时就必须要阻塞不然就会出错。如果不阻塞就应该是把之前的数据复制到另一个专用的缓冲区，调用者就不需要被阻塞可以继续修改用户缓冲区的数据，或是将缓冲区分成两部分一部分给调用者，当执行指令时把调用者阻塞 把这部分的数据复制到当前缓冲区的另一部分，复制完成后提示调用者就可以不被阻塞继续操作，系统将另一部分的数据继续复制写入文件。</p>
 <p>17.什么是陷阱指令？在操作系统中他的用途。</p>
 <p>陷阱指令将一个处理器的执行模式从用户模式切换到内核模式。该指令允许用户程序调用操作系统内核中的函数。</p>
-<p>18.分时系统中为什么需要进程表？在只有一个进程存在的计算机中，需要进程表吗、</p>
-<p>进程表是为了存储当前被挂起、甚或是被延迟和阻塞的进程状态。在单一进程的系统中是不需要，因为单一进程从不挂起。</p>
-<p>23.有一个文件，其文件描述符是fd，内含下列字节序列：3，1，4，1，5，9，2，6，5，3，5。有如下系统调用：</p>
-<p>lseek(fd, 3, SEEK_SET);</p>
-<p>read(fd, &amp;buffer, 4);</p>
-<p>其中lseek调用寻找文件中的字节3。在读操作完成之后，buffer中的内容是什么？</p>
-<p>答：1, 5, 9, 2</p>
+<p><strong>18.分时系统中为什么需要进程表？在只有一个进程存在的计算机中，需要进程表吗？</strong></p>
+<blockquote>
+<p>进程表是为了存储当前被挂起、甚或是被延迟和阻塞的进程状态。在单一进程的系统中是不需要，<strong>因为单一进程从不挂起。</strong></p>
+</blockquote>
+<p>书上提到的是多道程序系统 （分时系统都是多道程序设计系统），操作系统周期性地挂起一个进程，然后在这个进程再次启动时为了让其启动时的状态和先前暂停时完全相同，就意味着该进程的所有信息都要保存下来（比如指向某文件的指针），这些所有信息（除了该进程本身的地址空间内容以外）都会被存放在操作系统的进程表里（表本身是数组或链表结构</p>
+<p>23.有一个文件，其文件描述符是fd，内含下列字节序列：3，1，4，1，5，9，2，6，5，3，5。有如下系统调用：lseek(fd, 3, SEEK_SET);read(fd, &amp;buffer, 4);其中lseek调用寻找文件中的字节3。在读操作完成之后，buffer中的内容是什么？</p>
+<p>lseek的三个参数含义是，1 文件的描述符，2 文件位置，3 该文件位置相对于文件的起始位置还是 当前位置还是结尾，修改指针后lseek返回文件中的绝对位置。</p>
+<p>fd = open(file,how,…)  read(fd 指定文件,buffer 指向缓冲区,nbytes说明要读出的字节数)</p>
+<p> <strong>答案就是：根据这个buffer所指向的就是缓冲区中（刚刚lseek的数据 相对于起始位置的第四个字节） 然后读出4个字节，1,5,9,2</strong></p>
 <p>24.假设一个10MB的文件在磁盘连续扇区的同一个轨道上（轨道号：50）。磁盘的磁头臂此时位于第100号轨道。要想从磁盘上找回这个文件，需要多长时间？ 假设磁头臂从一个柱面移动到下一个柱面需要1ms，当文件的开始部分存储在的扇区旋转到磁头下需要5ms，并且读的速率是100MB/s。</p>
 <p>答：找到文件需要的时间=1 <em> 50 ms (移动到50轨道号的时间) + 5 ms (旋转到文件开始部分存储在的扇区的时间) + 10/100 </em> 1000 ms (读取10MB的时间) = 155 ms</p>
 <p>25.块特殊文件和字符特殊文件的基本差别是什么？</p>
@@ -349,7 +410,7 @@
 <p>答：每一个系统体系结构都有它自己可以执行的一套指令。因此，奔腾不能执行SPARC程序或者SPARC无法执行奔腾程序。另外，不同的架构使用不同的总线架构（如VME总线，ISA，PCI，MCA，SBU，…）以及CPU的字长（通常是32或64位）。由于硬件上的这些差异，建立一个完全可移植的操作系统是不可行的。一个高度可移植的操作系统将包括两个高级层——一个机器相关层和一个机器独立层。机器相关层屏蔽硬件的细节，必须为每一个架构单独实现，该层提供了一个统一的接口。机器独立层只需要实现一次。为了实现高度可移植，机器相关层应尽可能小</p>
 <p>31、请解释在建立基于微内核的操作系统时策略与机制的分离带来的好处。</p>
 <p>答：策略和机制的分离，使操作系统的设计人员在内核中实现了少量的基本原语。这些原语被简化，因为它们不依赖于任何特定的策略。然后，它们在用户级别可以被用来实现更复杂的机制和策略。</p>
-<h2><span id="di-er-zhang">第二章</span><a href="#di-er-zhang" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h2><p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323212132.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323212132.png" alt=""></a></p>
+<h1><span id="di-er-zhang">第二章</span><a href="#di-er-zhang" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h1><p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323212132.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323212132.png" alt=""></a></p>
 <p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323212146.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200323212146.png" alt=""></a></p>
 
 
