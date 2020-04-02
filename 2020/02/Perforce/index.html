@@ -214,6 +214,41 @@
       </div>
     </div>
     <p>[TOC]</p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#perforce">Perforce</a><ul>
+<li><a href="#fu-wu-duan-pei-zhi">服务端配置</a><ul>
+<li><a href="#1-an-zhuang">1.安装</a><ul>
+<li><a href="#1-xia-zai-gong-yao-https-package-perforce-com-perforce-pubkey">1.下载公钥 https://package.perforce.com/perforce.pubkey</a></li>
+<li><a href="#2-huo-qu-gong-yao-de-finerprint">2.获取公钥的finerprint</a></li>
+<li><a href="#3-yan-zheng-zhi-wen-shi-fou-yu-pi-pei-ru-guo-shi-jiu-shuo-ming-ruan-jian-bao-shi-ke-kao-de">3.验证指纹是否与↓匹配 如果是 就说明软件包是可靠的</a></li>
+<li><a href="#4-apt-ubuntu-an-zhuang">4.APT（Ubuntu）安装</a><ul>
+<li><a href="#jiang-perforce-mi-yao-tian-jia-dao-apt-mi-yao-huan">将Perforce密钥添加到APT密钥环</a></li>
+<li><a href="#jiang-perforce-wen-jian-jia-tian-jia-dao-nin-de-apt-pei-zhi-zhong">将Perforce文件夹添加到您的APT配置中。</a></li>
+<li><a href="#3-apt-geng-xin-yuan">3.apt更新源</a></li>
+<li><a href="#4-an-zhuang-ming-ling">4.安装命令</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2-pei-zhi">2.配置</a></li>
+</ul>
+</li>
+<li><a href="#ke-hu-duan-ben-di-pei-zhi">客户端/本地配置</a><ul>
+<li><a href="#3-fen-pei-yong-hu">3.分配用户</a></li>
+<li><a href="#4-cong-ben-di-lian-jie-dao-fu-wu-qi">4.从本地连接到服务器</a></li>
+<li><a href="#5-chuang-jian-streams-line-yuan-cheng-cang-ku-jin-xing-xiang-mu-guan-li">5.创建Streams_line远程仓库进行项目管理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#wen-ti">问题</a></li>
+</ul>
+<!-- tocstop -->
+</div>
+
 <h1><span id="perforce">Perforce</span><a href="#perforce" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h1><p>在小组合作时有队员提到了这个<strong>perforce</strong>(Perforce Helix Core),这是一个类似git的分布式协作/<a href="https://www.perforce.com/solutions/version-control">版本控制</a>/<a href="https://www.perforce.com/solutions/application-development-lifecycle-management?utm_leadsource=email-signature&amp;utm_campaign=2019-common&amp;utm_source=outlook-direct-email&amp;utm_medium=email&amp;utm_content=email-signature-link">应用程序生命周期管理</a>的软件，unity里可以直接在settings里配置并连接到服务器，支持度很高，另外美术资源的更新和同步速度真是非常快，是github比不了的，据说大型代码管理起来速度也非常快？</p>
 <p>总之根据管理手册，我下载了<a href="https://www.perforce.com/downloads/helix-visual-client-p4v?utm_leadsource=email-signature&amp;utm_campaign=2019-common&amp;utm_source=outlook-direct-email&amp;utm_medium=email&amp;utm_content=email-signature-link">Helix Visual Client（P4V）</a>并在我的服务器上部署了服务端，步骤如下（非常简单 就是按照官网的操作来</p>
 <h2><span id="fu-wu-duan-pei-zhi">服务端配置</span><a href="#fu-wu-duan-pei-zhi" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h2><p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402230242.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402230242.png" alt=""></a></p>
