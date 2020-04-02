@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+      <script>
+  var _hmt = _hmt || []
+  ;(function() {
+    var hm = document.createElement('script')
+    hm.src = 'https://hm.baidu.com/hm.js?5a0acc897fd96474a2c8f4deac84611a'
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(hm, s)
+  })()
+</script> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Design,Arts,Painting,UI,GameDevelop">
+    <meta name="description" content="Hikoyan">
+    
+    <title>
+      Perforce - Hiko&#39;s Blog
+    </title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/style/style.css">
+  </head>
+  <body>
+    <canvas id="pagemap"></canvas>
+    
+    <div id="post-toc" class="animated hiddenToc hide">
+      <span class="title">Toc</span>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text">Perforce#</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">服务端配置#</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">1.安装#</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">1.下载公钥   #</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">2.获取公钥的finerprint#</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">3.验证指纹是否与↓匹配 如果是 就说明软件包是可靠的#</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">4.APT（Ubuntu）安装#</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-text">将Perforce密钥添加到APT密钥环#</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-text">将Perforce文件夹添加到您的APT配置中。#</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-text">3.apt更新源#</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-text">4.安装命令#</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">2.配置#</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">客户端/本地配置#</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">3.分配用户#</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">4.从本地连接到服务器#</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">5.创建Streams_line远程仓库进行项目管理#</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text">问题#</span></a></li></ol>
+    </div>
+    
+    <div id="fixed-menu-wrap">
+      <span class="iconfont icon-sousuo search-box menu-reset"></span>
+      <span class="icon-toc menu-reset">Toc</span>
+      <span class="iconfont icon-arrowup menu-reset"></span>
+    </div>
+    <div id="fixed-menu">
+      <span class="iconfont icon-menu-"></span>
+    </div>
+    <div id="progress">
+      <div class="line"></div>
+    </div>
+    <div id="search-shade" class="animated hiddenSearch hide">
+      <div class="input-wrap">
+        <span class="iconfont icon-sousuo search-box"></span>
+        <input type="text" placeholder="Search">
+        <span class="iconfont icon-close"></span>
+      </div>
+      <div class="search-result">
+        <div class="meta">
+          <span><b id="result-count">0</b> results found</span>
+          <img src="/images/logo.jpeg">
+        </div>
+        <ul id="result-box"></ul>
+      </div>
+    </div>
+    <div id="menu-mask" class="animated hideMenuMask hide">
+      <span class="iconfont icon-close"></span>
+      <div class="nav">
+        
+        <a href="/" class="">
+          首页
+        </a>
+        
+        <a href="/archives" class="">
+          归档
+        </a>
+        
+        <a href="/categories" class="">
+          分类
+        </a>
+        
+        <a href="/tags" class="">
+          标签
+        </a>
+        
+        <a href="/gallery" class="">
+          画廊
+        </a>
+        
+        <a href="/friends" class="">
+          友链
+        </a>
+        
+        <a href="/about" class="">
+          关于
+        </a>
+        
+      </div>
+    </div>
+    <div id="header">
+      <div class="intro">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <div class="author">hiko</div>
+      </div>
+      <div class="nav">
+        <span class="iconfont icon-menu menu-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+    </div>
+    <div id="side" class="animated bounceInLeft">
+      <div class="shrink">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <span class="iconfont icon-menu toggle-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+      <div class="magnify">
+        <div class="about">
+          <div class="author">hiko</div>
+          <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        </div>
+
+        <div class="nav">
+          
+          <a href="/" class="">
+            首页
+          </a>
+          
+          <a href="/archives" class="">
+            归档
+          </a>
+          
+          <a href="/categories" class="">
+            分类
+          </a>
+          
+          <a href="/tags" class="">
+            标签
+          </a>
+          
+          <a href="/gallery" class="">
+            画廊
+          </a>
+          
+          <a href="/friends" class="">
+            友链
+          </a>
+          
+          <a href="/about" class="">
+            关于
+          </a>
+          
+          <a href="#" class="search-box">
+            <span class="iconfont icon-sousuo"></span>
+          </a>
+        </div>
+        <div class="bottom">
+          <div class="follow">
+            
+            <a href="https://github.com/Hikohikoyan" target="_block">
+              <span class="iconfont icon-github"></span>
+            </a>
+             
+            <a href="/" target="_block">
+              <span class="iconfont icon-rss"></span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <div class="main animated bounceInRight delay-0.7s">
+        <article class="post-entry">
+    <div class="header">
+      
+      <div class="title">Perforce</div>
+      <div class="meta">
+        <span class="item">
+          <span class="iconfont icon-time-circle"></span>
+          <span>2020/04/02</span>
+        </span>
+
+        
+          <span class="item leancloud-visitors" id="/2020/02/Perforce/" data-flag-title="Perforce">
+            <span class="iconfont icon-eye1"></span>
+            <span class="leancloud-visitors-count"></span>
+          </span>
+        
+
+        
+        
+         
+          <span class="item">
+            <span class="iconfont icon-tag1"></span>
+            <span>
+                
+                  
+                    <a href="/tags/Perforce">Perforce</a>
+                  
+                
+                  
+                    <a href="/tags/Git">Git</a>
+                  
+                
+                  
+                    <a href="/tags/项目管理">项目管理</a>
+                  
+                
+                  
+                    <a href="/tags/美术资源管理">美术资源管理</a>
+                  
+                
+            </span>
+          </span>
+         
+      </div>
+      <div>
+      </div>
+    </div>
+    <p>[TOC]</p>
+<h1><span id="perforce">Perforce</span><a href="#perforce" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h1><p>在小组合作时有队员提到了这个<strong>perforce</strong>(Perforce Helix Core),这是一个类似git的分布式协作/<a href="https://www.perforce.com/solutions/version-control">版本控制</a>/<a href="https://www.perforce.com/solutions/application-development-lifecycle-management?utm_leadsource=email-signature&amp;utm_campaign=2019-common&amp;utm_source=outlook-direct-email&amp;utm_medium=email&amp;utm_content=email-signature-link">应用程序生命周期管理</a>的软件，unity里可以直接在settings里配置并连接到服务器，支持度很高，另外美术资源的更新和同步速度真是非常快，是github比不了的，据说大型代码管理起来速度也非常快？</p>
+<p>总之根据管理手册，我下载了<a href="https://www.perforce.com/downloads/helix-visual-client-p4v?utm_leadsource=email-signature&amp;utm_campaign=2019-common&amp;utm_source=outlook-direct-email&amp;utm_medium=email&amp;utm_content=email-signature-link">Helix Visual Client（P4V）</a>并在我的服务器上部署了服务端，步骤如下（非常简单 就是按照官网的操作来</p>
+<h2><span id="fu-wu-duan-pei-zhi">服务端配置</span><a href="#fu-wu-duan-pei-zhi" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h2><p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402230242.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402230242.png" alt=""></a></p>
+<h3><span id="1-an-zhuang">1.安装</span><a href="#1-an-zhuang" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p>指南→<a href="https://www.perforce.com/manuals/p4sag/Content/P4SAG/Home-p4sag.html">https://www.perforce.com/manuals/p4sag/Content/P4SAG/Home-p4sag.html</a></p>
+<p>我选择的安装方式是Linux package-based installation，就是按照服务器的系统版本选择需要的安装包，这里可选的版本如下（指南中有写）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs undefined">You can install packages for the Perforce service on the following Linux (Intel x86_64) platforms:<br><br>Ubuntu 12.04 LTS (precise)<br>Ubuntu 14.04 LTS (trusty)<br>Ubuntu 16.04 LTS (xenial)<br>Ubuntu 18.04 LTS (bionic)<br>CentOS or Red Hat 6.x<br>CentOS or Red Hat 7.x<br>SUSE Linux Enterprise Server 12<br></code></pre></td></tr></table></figure>
+<h4><span id="1-xia-zai-gong-yao-https-package-perforce-com-perforce-pubkey">1.下载公钥   </span><a href="#1-xia-zai-gong-yao-https-package-perforce-com-perforce-pubkey" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><h4><span id="2-huo-qu-gong-yao-de-finerprint">2.获取公钥的finerprint</span><a href="#2-huo-qu-gong-yao-de-finerprint" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">gpg --with-fingerprint perforce.pubkey<br></code></pre></td></tr></table></figure>
+<h4><span id="3-yan-zheng-zhi-wen-shi-fou-yu-pi-pei-ru-guo-shi-jiu-shuo-ming-ruan-jian-bao-shi-ke-kao-de">3.验证指纹是否与↓匹配 如果是 就说明软件包是可靠的</span><a href="#3-yan-zheng-zhi-wen-shi-fou-yu-pi-pei-ru-guo-shi-jiu-shuo-ming-ruan-jian-bao-shi-ke-kao-de" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><h4><span id="4-apt-ubuntu-an-zhuang">4.APT（Ubuntu）安装</span><a href="#4-apt-ubuntu-an-zhuang" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><ol>
+<li><h5><span id="jiang-perforce-mi-yao-tian-jia-dao-apt-mi-yao-huan">将Perforce密钥添加到APT密钥环</span><a href="#jiang-perforce-mi-yao-tian-jia-dao-apt-mi-yao-huan" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">wget -qO - https://package.perforce.com/perforce.pubkey | sudo apt-key add -<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="2">
+<li><h5><span id="jiang-perforce-wen-jian-jia-tian-jia-dao-nin-de-apt-pei-zhi-zhong">将Perforce文件夹添加到您的APT配置中。</span><a href="#jiang-perforce-wen-jian-jia-tian-jia-dao-nin-de-apt-pei-zhi-zhong" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h5><p>创建一个名为/etc/apt/sources.list.d/perforce.list的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">deb http://package.perforce.com/apt/ubuntu &#123;distro&#125; release<br></code></pre></td></tr></table></figure>
+<p>这里的{distro}就是填一开始各ubuntu版本对应的软件源了（其实也是版本？其实是没什么差别 ）</p>
+<h5><span id="3-apt-geng-xin-yuan">3.apt更新源</span><a href="#3-apt-geng-xin-yuan" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">apt-get update<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5><span id="4-an-zhuang-ming-ling">4.安装命令</span><a href="#4-an-zhuang-ming-ling" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">sudo apt-get install helix-p4d<br></code></pre></td></tr></table></figure>
+<h3><span id="2-pei-zhi">2.配置</span><a href="#2-pei-zhi" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p>其实就是傻瓜式配置，一开始有队员也用自己服务器配置了下，但是可能不知道怎么分配用户，没办法连上并且合作，于是我谨慎地选择了默认选项（嗯</p>
+<p>在一开始时会默认创建一个超级管理员用户，这里建议不适应命令行的可以现在记事本里设置好并保存用户名和密码，然后设置时直接复制上去即可（单击右键 为复制）</p>
+<p>其他基本上按enter就行 默认选项即可 <strong>unicode模式千万不要开启</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">sudo /opt/perforce/sbin/configure-helix-p4d.sh -h<br>或<br>sudo /opt/perforce/sbin/configure-helix-p4d.sh<br></code></pre></td></tr></table></figure>
+<h2><span id="ke-hu-duan-ben-di-pei-zhi">客户端/本地配置</span><a href="#ke-hu-duan-ben-di-pei-zhi" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h2><h3><span id="3-fen-pei-yong-hu">3.分配用户</span><a href="#3-fen-pei-yong-hu" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p>之前提到的用户分配问题，其实如果对命令行不熟练的话p4v提供了本地UI界面可视化操作，那么按照文章开头的连接下载cli</p>
+<p>在第二步配置的时候有设过一个超级用户，先在p4 admin中按照设定填上。登录后就是这个界面</p>
+<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402233837.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402233837.png" alt=""></a></p>
+<p>选中超级用户然后右键，选中new user</p>
+<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402234627.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402234627.png" alt=""></a></p>
+<p>(这个是快捷操作 可以选择带options的创建方式)</p>
+<p>带option的话基本配置最好都不要改（手贱改了一个standard 居然没有写权限  不过可以给策划什么的只需要查看资源的分配这种受限用户），邮箱是必填（不一定要写真实邮箱（在本小团队模拟中 不需要 嗯）</p>
+<p>配置好用户名密码然后分发给团队成员就可以协作管理啦</p>
+<h3><span id="4-cong-ben-di-lian-jie-dao-fu-wu-qi">4.从本地连接到服务器</span><a href="#4-cong-ben-di-lian-jie-dao-fu-wu-qi" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402233532.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402233532.png" alt=""></a></p>
+<p>（这个是p4v client 客户端的配置界面）</p>
+<p>选择本地的文件夹（可以为空 或有项目）作为workspace，这个workspace之后会映射到远程服务器的depot仓库（就是类似github远程仓一样嘛）</p>
+<h3><span id="5-chuang-jian-streams-line-yuan-cheng-cang-ku-jin-xing-xiang-mu-guan-li">5.创建Streams_line远程仓库进行项目管理</span><a href="#5-chuang-jian-streams-line-yuan-cheng-cang-ku-jin-xing-xiang-mu-guan-li" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p>选中depot然后右键创建stream_line远程仓库，</p>
+<p>基本配置不用改（咦我好像有改过一个什么选项 忘了  然后我遇到了没法复现创建这个stream line的问题，导致我出现了无法上传unity 的meta文件的问题）</p>
+<p>创建好后选择本地workspace的文件 点击ADD 然后submit</p>
+<p>就可以看到类似↓的文件目录</p>
+<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402235204.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402235204.png" alt=""></a></p>
+<p>程序员哥哥们觉得非常好评hhh，速度非常快，美术资源管理起来也非常容易，再也不用看到svn那个复杂的报错信息和仓库容量爆了的可怕提示了~~</p>
+<h1><span id="wen-ti">问题</span><a href="#wen-ti" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h1><p>仍然待解决的是，这里我传输的都是美术资源和说明文档，还没有试过上传代码，不过因为是stream式的仓库，应该不会有问题，创建普通仓库的话遇到了这样的报错↓</p>
+<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402235641.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402235641.png" alt=""></a></p>
+<p>（队友遇到的问题↑）</p>
+<p>以及我遇到的 文件名报错问题（搜了官方论坛 不过似乎没找到有效的解决方案）</p>
+<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402235844.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402235844.png" alt=""></a></p>
+<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402235856.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402235856.png" alt=""></a></p>
+<p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402235905.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200402235905.png" alt=""></a></p>
+<p><a href="https://stackoverflow.com/questions/59497851/perforce-p4api-net-add-file-get-this-cant-add-filenames-with-wildcards-i">解决方法1</a>：思路就是把这个报错的部分转义掉</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">f = filePath.Replace(&quot;@&quot;, &quot;%40&quot;);cmd = new P4Command(p4, &quot;edit&quot;, true, command, changelist.Id.ToString(), f);<br></code></pre></td></tr></table></figure>
+<p>查到的相关链接如下，暂时还是没有解决，如果有办法的话欢迎留言~感谢感谢</p>
+<p>【1】<a href="https://forum.unity.com/threads/packagecache-com-unity-test-framework-1-0-13-cs0246-error.759764/">https://forum.unity.com/threads/packagecache-com-unity-test-framework-1-0-13-cs0246-error.759764/</a></p>
+<p>【2】<a href="https://docs.unity3d.com/Packages/com.unity.test-framework.performance@0.1/manual/index.html">https://docs.unity3d.com/Packages/com.unity.test-framework.performance@0.1/manual/index.html</a></p>
+<p>【3】<a href="https://stackoverflow.com/questions/37952591/perforce-workaround-to-add-files-with">https://stackoverflow.com/questions/37952591/perforce-workaround-to-add-files-with</a></p>
+<p>【4】<a href="https://community.perforce.com/s/article/3124">https://community.perforce.com/s/article/3124</a></p>
+<p>然后队友的方法是去到unity里传 另外</p>
+<p><strong>unity 不支持的文件,是不能 从 unity里commit的</strong></p>
+
+
+  
+    <div class="post-reward">
+    <div id="reward-button">打赏</div>
+      <div id="qr">
+        <div class="wrap">
+            
+            <div class="bg-wrap">
+              <a href="/images/zhifubao.png" target="_block" class="bg" style="background-image:url('/images/zhifubao.png')"></a>
+              支付宝
+            </div>
+            
+            
+            <div class="bg-wrap">
+                <a href="/images/weixin.png" target="_block" class="bg" style="background-image:url('/images/weixin.png')"></a>
+              微信
+            </div>
+            
+        </div>
+      </div>
+    </div>
+  
+  <div class="post-guide">
+    <div class="item left">
+        
+    </div>
+    <div class="item right">
+        
+          <a href="/2020/13/question/">HEXO问题一大堆</a>
+        
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="http://www.hikoyan.design">hiko</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="http://www.hikoyan.design/2020/02/Perforce/">http://www.hikoyan.design/2020/02/Perforce/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="http://www.hikoyan.design">hiko</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+  
+</article>
+        <footer>
+          <div class="copyright">
+            ©2020
+            <a href="http://www.hikoyan.design">hiko</a> Powered by <a href="https://hexo.io">Hexo</a> |
+            <a href="https://github.com/shixiaohu2206/hexo-theme-huhu">hexo-theme-huhu</a>
+          </div>
+          
+        </footer>
+      </div>
+    </div>
+  </body>
+  
+</html>
+<script type="text/javascript">
+                  window.HUHU_CONFIG = JSON.parse("{\"share\":[\"weibo\",\"weixin\",\"qqkongjian\",\"QQ\",\"douban\",\"facebook\",\"twitter\",\"google\"],\"valine\":{\"API_ID\":\"LVXM6K0V3JVURBpq0PFx9ACu-gzGzoHsz\",\"API_KEY\":\"7RlipnLnXQkz2pvR4svHyIrO\"},\"service_worker\":{\"open\":false}}")
+                </script> <script type="text/javascript">window.addEventListener('load', function() {
+    
+    window.loadJs = function(d, m, a) {
+      var c = document.getElementsByTagName('head')[0] || document.head || document.documentElement
+      var b = document.createElement('script')
+      b.defer = true
+      b.setAttribute('type', 'text/javascript')
+      b.setAttribute('charset', 'UTF-8')
+      b.setAttribute('async', 'true')
+      b.setAttribute('src', d)
+      m && b.setAttribute('data-main', '/scripts/app-built')
+      if (typeof a === 'function') {
+        if (window.attachEvent) {
+          b.onreadystatechange = function() {
+            var e = b.readyState
+            if (e === 'loaded' || e === 'complete') {
+              b.onreadystatechange = null
+              a()
+            }
+          }
+        } else {
+          b.onload = a
+        }
+      }
+      c.appendChild(b)
+    }
+    window.loadJs && window.loadJs('https://cdn.bootcss.com/require.js/2.3.6/require.min.js', true, function() {require.config({"paths":{"util":"util","share":"share","search":"search","pagemap":"pagemap.min","registerSW":"registerSW","valine":"cdn/Valine.min","av":["https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min"],"pjax":["https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min"],"jquery":["https://cdn.bootcss.com/jquery/3.4.1/jquery.min"],"confirm":["https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min"],"fancybox":["https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min"],"chart":["https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.bundle.min"]},"map":{"*":{"css":"https://cdn.bootcss.com/require-css/0.1.10/css.min.js"}},"shim":{"fancybox":{"deps":["css!https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css"]},"confirm":{"deps":["css!https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min.css"]},"chart":{"deps":["css!https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.min.css"]}},"waitSeconds":3})})
+  })</script>  
