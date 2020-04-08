@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <script>
+  var _hmt = _hmt || []
+  ;(function() {
+    var hm = document.createElement('script')
+    hm.src = 'https://hm.baidu.com/hm.js?5a0acc897fd96474a2c8f4deac84611a'
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(hm, s)
+  })()
+</script> 
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="keywords" content="Design,Arts,Painting,UI,GameDevelop" />
+    <meta name="description" content="Hikoyan" />
+    
+    <title>
+      重新学习CSS - Hiko&#39;s Blog
+    </title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/style/style.css">
+  </head>
+  <body>
+    <canvas id='pagemap'></canvas>
+    
+    <div id="post-toc" class="animated hiddenToc hide">
+      <span class="title">Toc</span>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text">CSS#</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">本文为部门内训创建，也希望借此机会重新巩固css相关知识，所谓温故而知新嘛#</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">目录#</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">基础回顾#</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">1.从引入css开始#</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">2.选择器#</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-text">基本规则#</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">3.属性#</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">4.简单的计算函数#</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">5.@rules#</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">@import#</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">@media#</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">@keyframe#</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">@supports#</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">6. 速记属性#</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">对于常用的margin  padding#</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">background#</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">7.css的工作流程#</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">8.使用自定义的字体#</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">9.盒模型基础#</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">边距重叠解决方案(BFC)#</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">BFC的原理#</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">怎么创建bfc#</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">应用场景#</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">n.空#</span></a></li></ol></li></ol></li></ol>
+    </div>
+    
+    <div id="fixed-menu-wrap">
+      <span class="iconfont icon-sousuo search-box menu-reset"></span>
+      <span class="icon-toc menu-reset">Toc</span>
+      <span class="iconfont icon-arrowup menu-reset"></span>
+    </div>
+    <div id="fixed-menu">
+      <span class="iconfont icon-menu-"></span>
+    </div>
+    <div id="progress">
+      <div class="line"></div>
+    </div>
+    <div id="search-shade" class="animated hiddenSearch hide">
+      <div class="input-wrap">
+        <span class="iconfont icon-sousuo search-box"></span>
+        <input type="text" placeholder="Search" />
+        <span class="iconfont icon-close"></span>
+      </div>
+      <div class="search-result">
+        <div class="meta">
+          <span><b id="result-count">0</b> results found</span>
+          <img src="/images/logo.jpeg" />
+        </div>
+        <ul id="result-box"></ul>
+      </div>
+    </div>
+    <div id="menu-mask" class="animated hideMenuMask hide">
+      <span class="iconfont icon-close"></span>
+      <div class="nav">
+        
+        <a href="/" class="">
+          首页
+        </a>
+        
+        <a href="/archives" class="">
+          归档
+        </a>
+        
+        <a href="/categories" class="">
+          分类
+        </a>
+        
+        <a href="/tags" class="">
+          标签
+        </a>
+        
+        <a href="/gallery" class="">
+          画廊
+        </a>
+        
+        <a href="/friends" class="">
+          友链
+        </a>
+        
+        <a href="/about" class="">
+          关于
+        </a>
+        
+      </div>
+    </div>
+    <div id="header">
+      <div class="intro">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <div class="author">hiko</div>
+      </div>
+      <div class="nav">
+        <span class="iconfont icon-menu menu-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+    </div>
+    <div id="side" class="animated bounceInLeft">
+      <div class="shrink">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <span class="iconfont icon-menu toggle-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+      <div class="magnify">
+        <div class="about">
+          <div class="author">hiko</div>
+          <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        </div>
+
+        <div class="nav">
+          
+          <a href="/" class="">
+            首页
+          </a>
+          
+          <a href="/archives" class="">
+            归档
+          </a>
+          
+          <a href="/categories" class="">
+            分类
+          </a>
+          
+          <a href="/tags" class="">
+            标签
+          </a>
+          
+          <a href="/gallery" class="">
+            画廊
+          </a>
+          
+          <a href="/friends" class="">
+            友链
+          </a>
+          
+          <a href="/about" class="">
+            关于
+          </a>
+          
+          <a href="#" class="search-box">
+            <span class="iconfont icon-sousuo"></span>
+          </a>
+        </div>
+        <div class="bottom">
+          <div class="follow">
+            
+            <a href="https://github.com/Hikohikoyan" target="_block">
+              <span class="iconfont icon-github"></span>
+            </a>
+             
+            <a href="/" target="_block">
+              <span class="iconfont icon-rss"></span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <div class="main animated bounceInRight delay-0.7s">
+        <article class="post-entry">
+    <div class="header">
+      
+      <div class="title">重新学习CSS</div>
+      <div class="meta">
+        <span class="item">
+          <span class="iconfont icon-time-circle"></span>
+          <span>2020/04/07</span>
+        </span>
+
+        
+          <span class="item leancloud-visitors" id="/2020/07/post/" data-flag-title="重新学习CSS">
+            <span class="iconfont icon-eye1"></span>
+            <span class="leancloud-visitors-count"></span>
+          </span>
+        
+
+         
+        <span class="item">
+          <span class="iconfont icon-folder"></span>
+          <span>
+              
+                
+                  <a href="/categories/前端">前端</a>
+                
+              
+          </span>
+        </span>
+        
+        
+         
+          <span class="item">
+            <span class="iconfont icon-tag1"></span>
+            <span>
+                
+                  
+                    <a href="/tags/CSS">CSS</a>
+                  
+                
+            </span>
+          </span>
+         
+      </div>
+      <div>
+      </div>
+    </div>
+    <h1><span id="css">CSS</span><a href="#css" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h1><h4><span id="ben-wen-wei-bu-men-nei-xun-chuang-jian-ye-xi-wang-jie-ci-ji-hui-chong-xin-gong-gu-css-xiang-guan-zhi-shi-suo-wei-wen-gu-er-zhi-xin-ma">本文为部门内训创建，也希望借此机会重新巩固css相关知识，所谓温故而知新嘛</span><a href="#ben-wen-wei-bu-men-nei-xun-chuang-jian-ye-xi-wang-jie-ci-ji-hui-chong-xin-gong-gu-css-xiang-guan-zhi-shi-suo-wei-wen-gu-er-zhi-xin-ma" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><hr>
+<h4><span id="mu-lu">目录</span><a href="#mu-lu" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#ji-chu-hui-gu">基础回顾</a><ul>
+<li><a href="#1-cong-yin-ru-css-kai-shi">1.从引入css开始</a></li>
+<li><a href="#2-xuan-ze-qi">2.选择器</a><ul>
+<li><a href="#ji-ben-gui-ze">基本规则</a></li>
+</ul>
+</li>
+<li><a href="#3-shu-xing">3.属性</a></li>
+<li><a href="#4-jian-dan-de-ji-suan-han-shu">4.简单的计算函数</a></li>
+<li><a href="#5-rules">5.@rules</a><ul>
+<li><a href="#import">@import</a></li>
+<li><a href="#media">@media</a></li>
+<li><a href="#keyframe">@keyframe</a></li>
+<li><a href="#supports">@supports</a></li>
+</ul>
+</li>
+<li><a href="#6-su-ji-shu-xing">6. 速记属性</a><ul>
+<li><a href="#dui-yu-chang-yong-de-margin-padding">对于常用的margin padding</a></li>
+<li><a href="#background">background</a></li>
+</ul>
+</li>
+<li><a href="#7-css-de-gong-zuo-liu-cheng">7.css的工作流程</a></li>
+<li><a href="#8-shi-yong-zi-ding-yi-de-zi-ti">8.使用自定义的字体</a></li>
+<li><a href="#9-he-mo-xing-ji-chu">9.盒模型基础</a><ul>
+<li><a href="#bian-ju-chong-die-jie-jue-fang-an-bfc">边距重叠解决方案(BFC)</a></li>
+<li><a href="#bfc-de-yuan-li">BFC的原理</a></li>
+<li><a href="#zen-me-chuang-jian-bfc">怎么创建bfc</a></li>
+<li><a href="#ying-yong-chang-jing">应用场景</a></li>
+</ul>
+</li>
+<li><a href="#n-kong">n.空</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<hr>
+<h2><span id="ji-chu-hui-gu">基础回顾</span><a href="#ji-chu-hui-gu" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h2><h3><span id="1-cong-yin-ru-css-kai-shi">1.从引入css开始</span><a href="#1-cong-yin-ru-css-kai-shi" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p>在<head><meta name="generator" content="Hexo 3.8.0">里添加的语句块</head></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;<br></code></pre></td></tr></table></figure>
+<p>其中的rel属性，是让浏览器知道有CSS文档存在（所以需要遵守CSS样式的规定），属性 <code>href</code> 指定，寻找CSS文件的位置。在引入失效时，对应的标签内容会以浏览器的默认样式渲染，也就是原来这个标签是怎样的样式，它就是怎样的样式。</p>
+<p>有的时候我们会遇到：引入了cdn的css库文件，但是对应的标签直接消失不见了或是怎么！important这个样式也不能修改，那就应该注意，如果是消失不见了 是原默认样式（或定义的样式）造成的那就不应该怪到库文件上，而没有期望样式同时浏览器请求200时才应该考虑是不是引入文件本身的问题。</p>
+<h3><span id="2-xuan-ze-qi">2.选择器</span><a href="#2-xuan-ze-qi" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p>如果你的样式没有生效，那很可能是你的选择器没有像你想象的那样选中你想要的元素。</p>
+<p>每个CSS规则都以一个选择器或一组选择器为开始，去告诉浏览器这些规则应该应用到哪些元素上。以下都是有效的选择器或组合选择器的示例。通常情况下，两个选择器可以选择相同的HTML元素。</p>
+<p>CSS语言有规则来控制在发生碰撞时哪条规则将获胜–这些规则称为<strong>级联规则</strong>和专用规则。<strong>写在靠后的样式将覆盖以前的样式</strong>。这就是起作用的级联。</p>
+<p>但是，在我们<strong>使用类选择器和元素选择器</strong>时，类将获胜，即使它出现在样式表的前面。<strong>一个类被描述为比元素选择器更具体</strong>，或者具有更多的特异性，所以它获胜了。</p>
+<h5><span id="ji-ben-gui-ze">基本规则</span><a href="#ji-ben-gui-ze" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h5><p>A + B 相邻兄弟节点</p>
+<p>A ~ B 兄弟选择符，位置无须紧邻，只须同层级，<code>A~B</code> 选择<code>A</code>元素之后所有同层级<code>B</code>元素</p>
+<p>A &gt; B 子选择器</p>
+<p>A B（有空格） 后代选择器</p>
+<p>:name 伪类</p>
+<p>::伪元素</p>
+<h3><span id="3-shu-xing">3.属性</span><a href="#3-shu-xing" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p>重要的是要记住，在css中，属性和值都是区分大小写的。</p>
+<p><strong>如果属性未知或某个值对给定属性无效，则声明被视为无效，并被浏览器的CSS引擎完全忽略。</strong></p>
+<p>属性值也可以作为选择器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">[attr]<br></code></pre></td></tr></table></figure>
+<p>表示带有以 attr 命名的属性的元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">[attr=value]<br></code></pre></td></tr></table></figure>
+<p>表示带有以 attr 命名的属性，且属性值为 value 的元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">[attr~=value]<br></code></pre></td></tr></table></figure>
+<p>表示带有以 attr 命名的属性的元素，并且该属性是一个以空格作为分隔的值列表，其中至少有一个值为 value。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">[attr|=value]<br></code></pre></td></tr></table></figure>
+<p>表示带有以 attr 命名的属性的元素，属性值为“value”或是以“value-”为前缀（”<code>-</code>“为连字符，Unicode 编码为 U+002D）开头。典型的应用场景是用来匹配语言简写代码（如 zh-CN，zh-TW 可以用 zh 作为 value）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">[attr^=value]<br></code></pre></td></tr></table></figure>
+<p>表示带有以 attr 命名的属性，且属性值是以 value 开头的元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">[attr$=value]<br></code></pre></td></tr></table></figure>
+<p>表示带有以 attr 命名的属性，且属性值是以 value 结尾的元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">[attr*=value]<br></code></pre></td></tr></table></figure>
+<p>表示带有以 attr 命名的属性，且属性值包含有 value 的元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">[*attr* *operator* *value* i]<br></code></pre></td></tr></table></figure>
+<p>在属性选择器的右方括号前添加一个用空格隔开的字母 <code>i</code>（或 <code>I</code>），可以在匹配属性值时忽略大小写（支持 ASCII 字符范围之内的字母）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">[*attr* *operator* *value* s]<br></code></pre></td></tr></table></figure>
+<p>在属性选择器的右方括号前添加一个用空格隔开的字母 <code>s</code>（或 <code>S</code>），可以在匹配属性值时区分大小写（支持 ASCII 字符范围之内的字母）。</p>
+<h3><span id="4-jian-dan-de-ji-suan-han-shu">4.简单的计算函数</span><a href="#4-jian-dan-de-ji-suan-han-shu" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p><strong>calc()函数</strong> 例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">width: calc(90% - 30px);<br></code></pre></td></tr></table></figure>
+<p>这里先给了元素90%的宽度 然后再对它减去30px，这里就比较符合设计适配的逻辑，比如一个30% 40% 30%分的页面，中间的div可以先占满40%然后再对应减去设计给的px值，就可以轻松地实现效果图了。</p>
+<p><strong>rotate()函数</strong> 例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">transform: rotate(0.8turn)；<br></code></pre></td></tr></table></figure>
+<p>这个就是旋转0.8周</p>
+<p>当然还有速度模拟的函数 之后一个个慢慢补充上来。</p>
+<h3><span id="5-rules">5.@rules</span><a href="#5-rules" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p> <code>@rules</code> (pronounced “at-rules”). 这是一些特殊的规则</p>
+<p>例如，要将额外的样式表导入主CSS样式表，可以使用</p>
+<h4><span id="import">@import</span><a href="#import" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">@import &apos;styles2.css&apos;;<br></code></pre></td></tr></table></figure>
+<h4><span id="media">@media</span><a href="#media" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><p>它可以使用媒体查询来应用css。这里涉及到“<strong>媒体查询</strong>”，这个概念就是可以缩小小型设备上的字体大小，以纵向模式查看页面时增加段落之间的填充，或者增大触摸屏上按钮的大小，是响应式设计的关键。</p>
+<p>举例，比如（官网）先给body元素一个粉红色的背景色。但是，我们随后使用@media创建样式表的一个部分，该部分仅适用于视口大于30em的浏览器。如果浏览器的宽度大于30em，则背景色将为蓝色。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs undefined">body &#123;<br>  background-color: pink;<br>&#125;<br><br>@media (min-width: 30em) &#123;<br>  body &#123;<br>    background-color: blue;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>如果用js 可能就要用到<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia"><code>Window.matchMedia()</code></a>方法或是</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList/addListener"><code>MediaQueryList.addListener()</code></a>监听方法。</p>
+<h4><span id="keyframe">@keyframe</span><a href="#keyframe" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><p>这个是在动画序列里用来定义关键帧的，在js中可以通过CSSKeyframesRule这个接口访问，CSSKeyframesRule就是你在css文件中的animation name，“show @keyframe”的show，rulename.appendRule()允许你将新的关键帧规则插入到原有的规则里去，这个用途很广泛。</p>
+<p>rulename.deleteRule()，删除对应的动画。</p>
+<p>rulename.findRule() 找到对应的动画，如果不存在这样的规则就返回null；</p>
+<h4><span id="supports">@supports</span><a href="#supports" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><p>这个就是能让纯css也能模拟js检测的方法了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">@supports &lt;supports_condition&gt; &#123;<br>  /* specific rules */<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>其中的condition可以用下列表达式写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs undefined">( transform-origin: 5% 5% )<br>//如果transform-origin的实现语法认为 5% 5%是有效值则为true<br><br>not( transform-origin: 10em 10em 10em )<br>//语法不认为10em 10em 10em是有效的.则返回true<br><br>not( not( transform-origin: 2px ) )<br><br>(display: flexbox) and ( not (display: inline-grid) )<br><br>//not操作符可以应用在任意复杂度的表达式上<br></code></pre></td></tr></table></figure>
+<p><strong>如果not操作符位于表达式的最外层,则没有必要使用小括号将它括起来</strong></p>
+<p>同时括号的使用有一个独特的地方  包括在if中使用:判断语句也是同样的规则，既几个逻辑与可以并列成为一个表达式,而不需要使用更多的括号:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined">(display: table-cell) and (display: list-item) and (display:run-in)<br><br>//等价于<br><br>(display: table-cell) and ((display: list-item) and (display:run-in))<br></code></pre></td></tr></table></figure>
+<h3><span id="6-su-ji-shu-xing">6. 速记属性</span><a href="#6-su-ji-shu-xing" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p>速记经常允许忽略值（缺省），但它们会将不包含的任何值重置为它们的初始值。这就要确保使用了一组合理的值。</p>
+<h4><span id="dui-yu-chang-yong-de-margin-padding">对于常用的margin  padding</span><a href="#dui-yu-chang-yong-de-margin-padding" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><p>语法顺序就是<strong>上右下左</strong>  顺时针，top right bottom left</p>
+<p>这个对各种变换也适用</p>
+<h4><span id="background">background</span><a href="#background" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">background: color url(image.png) position x y repeat-mode scroll(or fixed or none);<br></code></pre></td></tr></table></figure>
+<h3><span id="7-css-de-gong-zuo-liu-cheng">7.css的工作流程</span><a href="#7-css-de-gong-zuo-liu-cheng" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><ol>
+<li><p>浏览器载入HTML文件（比如从网络上获取）。</p>
+</li>
+<li><p>将HTML文件转化成一个DOM（Document Object Model），DOM是文件在计算机内存中的表现形式，下一节将更加详细的解释DOM。</p>
+</li>
+<li><p>接下来，浏览器会拉取该HTML相关的大部分资源，比如嵌入到页面的图片、视频和CSS样式。JavaScript则会稍后进行处理，简单起见，同时此节主讲CSS，所以这里对如何加载JavaScript不会展开叙述。</p>
+</li>
+<li><p>浏览器拉取到CSS之后会进行解析，根据选择器的不同类型（比如element、class、id等等）把他们分到不同的“桶”中。浏览器基于它找到的不同的选择器，将不同的规则（基于选择器的规则，如元素选择器、类选择器、id选择器等）应用在对应的DOM的节点中，并添加节点依赖的样式（这个中间步骤称为渲染树）。</p>
+</li>
+<li><p>上述的规则应用于渲染树之后，渲染树会依照应该出现的结构进行布局。</p>
+</li>
+<li><p>网页展示在屏幕上（这一步被称为着色）。</p>
+<p>总结来说就是<strong>浏览器会解析HTML并创造一个DOM，然后解析CSS。</strong>对于相同的DOM元素会映射到相同的css，因此共用样式、复用样式的渲染速度、处理效率会比单独选择某个元素更快更高。</p>
+<p>当浏览器遇到无法解析的CSS选择器或声明的时候会发生什么呢？</p>
+<p>浏览器什么也不会做，继续解析下一个CSS样式。</p>
+<p>相似的，当浏览器遇到无法解析的选择器的时候，他会直接忽略整个选择器规则，然后解析下一个CSS选择器。</p>
+</li>
+</ol>
+<h3><span id="8-shi-yong-zi-ding-yi-de-zi-ti">8.使用自定义的字体</span><a href="#8-shi-yong-zi-ding-yi-de-zi-ti" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p>由于设计总是喜欢用一些有趣的字体库来表达设计的趣味性，作为前端我们尽管实现就好了。这里简单介绍一下@font-face的用法。</p>
+<p>@font-face CSS at-rule 指定一个用于显示文本的自定义字体；字体能从<strong>远程服务器或者用户本地安装的字体</strong>加载. 如果提供了<strong>local()函数，从用户本地查找指定的字体名称</strong>，并且找到了一个匹配项, 本地字体就会被使用. 否则, 字体就会使用<strong>url()函数下载的资源</strong>。</p>
+<p>local()指定查找和使用本地安装的字体名称可以让字体的自定义化程度超过基本字体，同时<strong>在不依赖网络情况下</strong>实现此功能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined">@font-face &#123;<br>  font-family: &quot;Open Sans&quot;;<br>  src: url(&quot;/fonts/OpenSans-Regular-webfont.woff2&quot;) format(&quot;woff2&quot;),<br>       url(&quot;/fonts/OpenSans-Regular-webfont.woff&quot;) format(&quot;woff&quot;);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>首先定义一个安全字体 ，然后用src赋值url引入字体文件即可。</p>
+<p>在定义使用支持emoji的字体时，也可以通过定义“unicode-range”定义字体范围</p>
+<h3><span id="9-he-mo-xing-ji-chu">9.盒模型基础</span><a href="#9-he-mo-xing-ji-chu" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><h4><span id="bian-ju-chong-die-jie-jue-fang-an-bfc">边距重叠解决方案(BFC)</span><a href="#bian-ju-chong-die-jie-jue-fang-an-bfc" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><p>首先要明确BFC是什么意思，其全英文拼写为 Block Formatting Context 直译为“块级格式化上下文”</p>
+<h4><span id="bfc-de-yuan-li">BFC的原理</span><a href="#bfc-de-yuan-li" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><ol>
+<li>内部的box会在垂直方向，一个接一个的放置</li>
+<li>每个元素的margin box的左边，与包含块border box的左边相接触（对于从做往右的格式化，否则相反）</li>
+<li>box垂直方向的距离由margin决定，属于同一个bfc的两个相邻box的margin会发生重叠。你可以这样理解, 只有一个外边距起作用了. 如果有另外一种场景, 两个元素的外边距长短不一样, 那会是外边距较长的那一个起作用.</li>
+<li>bfc的区域不会与浮动区域的box重叠</li>
+<li>bfc是一个页面上的独立的容器，外面的元素不会影响bfc里的元素，反过来，里面的也不会影响外面的</li>
+<li>计算bfc高度的时候，浮动元素也会参与计算</li>
+</ol>
+<h4><span id="zen-me-chuang-jian-bfc">怎么创建bfc</span><a href="#zen-me-chuang-jian-bfc" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><ol>
+<li>float属性<strong>不</strong>为none（脱离文档流）<strong>如果盒子内的元素</strong>是浮动元素且盒子本身不具备 BFC 特性, 那么这个盒子在视觉上并不会包裹住内部浮动元素</li>
+<li>position为absolute或fixed</li>
+<li>display为inline-block,table-cell,table-caption,flex,inine-flex</li>
+<li>overflow不为visible</li>
+<li>根元素</li>
+</ol>
+<h4><span id="ying-yong-chang-jing">应用场景</span><a href="#ying-yong-chang-jing" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><ol>
+<li>自适应两栏布局</li>
+<li>清除内部浮动 </li>
+<li>防止垂直margin重叠</li>
+</ol>
+<h3><span id="n-kong">n.空</span><a href="#n-kong" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p>空白是指实际空格、制表符和新行。许多空白只是为了提高可读性。当然设计的图一般都具有良好的行距和缩进，那么css该怎么做到呢。</p>
+
+
+  
+    <div class="post-reward">
+    <div id="reward-button">打赏</div>
+      <div id="qr">
+        <div class="wrap">
+            
+            <div class="bg-wrap">
+              <a href="/images/zhifubao.png" target="_block" class="bg" style="background-image:url('/images/zhifubao.png')"></a>
+              支付宝
+            </div>
+            
+            
+            <div class="bg-wrap">
+                <a href="/images/weixin.png" target="_block" class="bg" style="background-image:url('/images/weixin.png')"></a>
+              微信
+            </div>
+            
+        </div>
+      </div>
+    </div>
+  
+  <div class="post-guide">
+    <div class="item left">
+        
+    </div>
+    <div class="item right">
+        
+          <a href="/2020/02/Perforce/">Perforce</a>
+        
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="http://www.hikoyan.design">hiko</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="http://www.hikoyan.design/2020/07/post/">http://www.hikoyan.design/2020/07/post/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="http://www.hikoyan.design">hiko</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+  
+</article>
+        <footer>
+          <div class="copyright">
+            ©2020
+            <a href="http://www.hikoyan.design">hiko</a> Powered by <a href="https://hexo.io">Hexo</a> |
+            <a href="https://github.com/shixiaohu2206/hexo-theme-huhu">hexo-theme-huhu</a>
+          </div>
+          
+        </footer>
+      </div>
+    </div>
+  </body>
+  
+</html>
+<script type="text/javascript">
+                  window.HUHU_CONFIG = JSON.parse("{\"share\":[\"weibo\",\"weixin\",\"qqkongjian\",\"QQ\",\"douban\",\"facebook\",\"twitter\",\"google\"],\"valine\":{\"API_ID\":\"LVXM6K0V3JVURBpq0PFx9ACu-gzGzoHsz\",\"API_KEY\":\"7RlipnLnXQkz2pvR4svHyIrO\"},\"service_worker\":{\"open\":false}}")
+                </script> <script type="text/javascript">window.addEventListener('load', function() {
+    
+    window.loadJs = function(d, m, a) {
+      var c = document.getElementsByTagName('head')[0] || document.head || document.documentElement
+      var b = document.createElement('script')
+      b.defer = true
+      b.setAttribute('type', 'text/javascript')
+      b.setAttribute('charset', 'UTF-8')
+      b.setAttribute('async', 'true')
+      b.setAttribute('src', d)
+      m && b.setAttribute('data-main', '/scripts/app-built')
+      if (typeof a === 'function') {
+        if (window.attachEvent) {
+          b.onreadystatechange = function() {
+            var e = b.readyState
+            if (e === 'loaded' || e === 'complete') {
+              b.onreadystatechange = null
+              a()
+            }
+          }
+        } else {
+          b.onload = a
+        }
+      }
+      c.appendChild(b)
+    }
+    window.loadJs && window.loadJs('https://cdn.bootcss.com/require.js/2.3.6/require.min.js', true, function() {require.config({"paths":{"util":"util","share":"share","search":"search","pagemap":"pagemap.min","registerSW":"registerSW","valine":"cdn/Valine.min","av":["https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min"],"pjax":["https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min"],"jquery":["https://cdn.bootcss.com/jquery/3.4.1/jquery.min"],"confirm":["https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min"],"fancybox":["https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min"],"chart":["https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.bundle.min"]},"map":{"*":{"css":"https://cdn.bootcss.com/require-css/0.1.10/css.min.js"}},"shim":{"fancybox":{"deps":["css!https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css"]},"confirm":{"deps":["css!https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min.css"]},"chart":{"deps":["css!https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.min.css"]}},"waitSeconds":3})})
+  })</script>  
