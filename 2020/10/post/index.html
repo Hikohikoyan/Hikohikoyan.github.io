@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+      <script>
+  var _hmt = _hmt || []
+  ;(function() {
+    var hm = document.createElement('script')
+    hm.src = 'https://hm.baidu.com/hm.js?5a0acc897fd96474a2c8f4deac84611a'
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(hm, s)
+  })()
+</script> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Design,Arts,Painting,UI,GameDevelop">
+    <meta name="description" content="Hikoyan">
+    
+    <title>
+      Shader学习001 - Hiko&#39;s Blog
+    </title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/style/style.css">
+  </head>
+  <body>
+    <canvas id="pagemap"></canvas>
+    
+    <div id="post-toc" class="animated hiddenToc hide">
+      <span class="title">Toc</span>
+      <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#undefined"><span class="toc-text">为了培养英文阅读习惯（习惯看文档、逛逛论坛 因此重要的术语用英文表示）#</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">Start with intro to Lighting#</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">Lighting Techniques#</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">Realtime Lighting#</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">Baked GI Lighting#</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">Precomputed Realtime GI Lighting#</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">启用烘焙或预计算Enabling Baked GI or Precomputed Realtime GI#</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">Enable PrecomucatedLighting#</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">Begin with ShaderLab#</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">Shader Intro#</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">Step 1 Creating Surface Shader#</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">Step 2  Creating a Material#</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">Writing Shaders#</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">Properties#</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">SubShader#</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">RenderSetup 渲染状态设置#</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">常用的贴图#</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">常用的材质属性#</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">Rendering Mode#</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-text">Maps#</span></a>
+    </li></ol></li></ol></li></div>
+    
+    <div id="fixed-menu-wrap">
+      <span class="iconfont icon-sousuo search-box menu-reset"></span>
+      <span class="icon-toc menu-reset">Toc</span>
+      <span class="iconfont icon-arrowup menu-reset"></span>
+    </div>
+    <div id="fixed-menu">
+      <span class="iconfont icon-menu-"></span>
+    </div>
+    <div id="progress">
+      <div class="line"></div>
+    </div>
+    <div id="search-shade" class="animated hiddenSearch hide">
+      <div class="input-wrap">
+        <span class="iconfont icon-sousuo search-box"></span>
+        <input type="text" placeholder="Search">
+        <span class="iconfont icon-close"></span>
+      </div>
+      <div class="search-result">
+        <div class="meta">
+          <span><b id="result-count">0</b> results found</span>
+          <img src="/images/logo.jpeg">
+        </div>
+        <ul id="result-box"></ul>
+      </div>
+    </div>
+    <div id="menu-mask" class="animated hideMenuMask hide">
+      <span class="iconfont icon-close"></span>
+      <div class="nav">
+        
+        <a href="/" class="">
+          首页
+        </a>
+        
+        <a href="/archives" class="">
+          归档
+        </a>
+        
+        <a href="/categories" class="">
+          分类
+        </a>
+        
+        <a href="/tags" class="">
+          标签
+        </a>
+        
+        <a href="/gallery" class="">
+          画廊
+        </a>
+        
+        <a href="/friends" class="">
+          友链
+        </a>
+        
+        <a href="/about" class="">
+          关于
+        </a>
+        
+      </div>
+    </div>
+    <div id="header">
+      <div class="intro">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <div class="author">hiko</div>
+      </div>
+      <div class="nav">
+        <span class="iconfont icon-menu menu-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+    </div>
+    <div id="side" class="animated bounceInLeft">
+      <div class="shrink">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <span class="iconfont icon-menu toggle-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+      <div class="magnify">
+        <div class="about">
+          <div class="author">hiko</div>
+          <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        </div>
+
+        <div class="nav">
+          
+          <a href="/" class="">
+            首页
+          </a>
+          
+          <a href="/archives" class="">
+            归档
+          </a>
+          
+          <a href="/categories" class="">
+            分类
+          </a>
+          
+          <a href="/tags" class="">
+            标签
+          </a>
+          
+          <a href="/gallery" class="">
+            画廊
+          </a>
+          
+          <a href="/friends" class="">
+            友链
+          </a>
+          
+          <a href="/about" class="">
+            关于
+          </a>
+          
+          <a href="#" class="search-box">
+            <span class="iconfont icon-sousuo"></span>
+          </a>
+        </div>
+        <div class="bottom">
+          <div class="follow">
+            
+            <a href="https://github.com/Hikohikoyan" target="_block">
+              <span class="iconfont icon-github"></span>
+            </a>
+             
+            <a href="/" target="_block">
+              <span class="iconfont icon-rss"></span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <div class="main animated bounceInRight delay-0.7s">
+        <article class="post-entry">
+    <div class="header">
+      
+      <div class="title">Shader学习001</div>
+      <div class="meta">
+        <span class="item">
+          <span class="iconfont icon-time-circle"></span>
+          <span>2020/04/10</span>
+        </span>
+
+        
+          <span class="item leancloud-visitors" id="/2020/10/post/" data-flag-title="Shader学习001">
+            <span class="iconfont icon-eye1"></span>
+            <span class="leancloud-visitors-count"></span>
+          </span>
+        
+
+         
+        <span class="item">
+          <span class="iconfont icon-folder"></span>
+          <span>
+              
+                
+                  <a href="/categories/笔记">笔记</a>
+                
+              
+          </span>
+        </span>
+        
+        
+         
+          <span class="item">
+            <span class="iconfont icon-tag1"></span>
+            <span>
+                
+                  
+                    <a href="/tags/计科">计科</a>
+                  
+                
+                  
+                    <a href="/tags/Shader">Shader</a>
+                  
+                
+                  
+                    <a href="/tags/图形学">图形学</a>
+                  
+                
+            </span>
+          </span>
+         
+      </div>
+      <div>
+      </div>
+    </div>
+    <h6><span id="wei-liao-pei-yang-ying-wen-yue-du-xi-guan-xi-guan-kan-wen-dang-guang-guang-lun-tan-yin-ci-chong-yao-de-zhu-yu-yong-ying-wen-biao-shi">为了培养英文阅读习惯（习惯看文档、逛逛论坛 因此重要的术语用英文表示）</span><a href="#wei-liao-pei-yang-ying-wen-yue-du-xi-guan-xi-guan-kan-wen-dang-guang-guang-lun-tan-yin-ci-chong-yao-de-zhu-yu-yong-ying-wen-biao-shi" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h6><div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#start-with-intro-to-lighting">Start with intro to Lighting</a></li>
+<li><a href="#lighting-techniques">Lighting Techniques</a><ul>
+<li><a href="#realtime-lighting">Realtime Lighting</a></li>
+<li><a href="#baked-gi-lighting">Baked GI Lighting</a></li>
+<li><a href="#precomputed-realtime-gi-lighting">Precomputed Realtime GI Lighting</a><ul>
+<li><a href="#qi-yong-hong-bei-huo-yu-ji-suan-enabling-baked-gi-or-precomputed-realtime-gi">启用烘焙或预计算Enabling Baked GI or Precomputed Realtime GI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#enable-precomucatedlighting">Enable PrecomucatedLighting</a></li>
+<li><a href="#begin-with-shaderlab">Begin with ShaderLab</a><ul>
+<li><a href="#shader-intro">Shader Intro</a></li>
+<li><a href="#step-1-creating-surface-shader">Step 1 Creating Surface Shader</a></li>
+<li><a href="#step-2-creating-a-material">Step 2  Creating a Material</a></li>
+</ul>
+</li>
+<li><a href="#writing-shaders">Writing Shaders</a><ul>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#subshader">SubShader</a><ul>
+<li><a href="#rendersetup-xuan-ran-zhuang-tai-she-zhi">RenderSetup 渲染状态设置</a></li>
+</ul>
+</li>
+<li><a href="#chang-yong-de-tie-tu">常用的贴图</a></li>
+<li><a href="#chang-yong-de-cai-zhi-shu-xing">常用的材质属性</a><ul>
+<li><a href="#rendering-mode">Rendering Mode</a></li>
+<li><a href="#maps">Maps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h2><span id="start-with-intro-to-lighting">Start with intro to Lighting</span><a href="#start-with-intro-to-lighting" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h2><p>简单的开始——<code>Global illumination</code>,<strong>所谓GI</strong>，unity的教程是这样描述的： a term used to describe a range of techniques and mathematical models which attempt to simulate the complex behavior of light as it bounces and interacts with the world.</p>
+<p><strong>Note how colors are transferred as light ‘bounces’ between surfaces, giving a much more realistic result.</strong></p>
+<h2><span id="lighting-techniques">Lighting Techniques</span><a href="#lighting-techniques" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h2><h3><span id="realtime-lighting">Realtime Lighting</span><a href="#realtime-lighting" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p>即实时照明，默认情况下，Unity中的灯光-定向，点和点是实时的。这意味着它们为场景提供直接的光线并更新每一帧。当灯光和游戏对象在场景内移动时，灯光将立即更新。</p>
+<p>这可以在场景视图和游戏视图中都可以观察到。存在的问题是Unity<strong>实时灯光的光线在单独使用时不会反射</strong>，失去反射就失去了一个关键的材质表现离，于是就要结合“<strong>预先计算的照明解决方案</strong>”<code>Precomputed Realtime GI Lighting</code></p>
+<h3><span id="baked-gi-lighting">Baked GI Lighting</span><a href="#baked-gi-lighting" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p>烘焙照明，就是给物体赋予一张光照贴图<code>LightingMap</code>来实现拟真的光影效果，光照贴图不会受交互改变，是静态的。</p>
+<p>实时灯光可以叠加并在光照贴图场景的顶部使用，但不能交互更改光照贴图本身。</p>
+<p>通过这种方法，我们可以在游戏过程中移动灯光，以潜在地提高性能，以适应功能更弱的硬件（例如移动平台）。</p>
+<h3><span id="precomputed-realtime-gi-lighting">Precomputed Realtime GI Lighting</span><a href="#precomputed-realtime-gi-lighting" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p>传统的静态光照贴图无法响应场景中照明条件的变化，而预先计算的实时GI确实为我们提供了一种交互式更新复杂场景照明的技术。</p>
+<p>通过这种方法，可以创建具有丰富全局照明的照明环境，并具有反射光，这些反射光可以实时响应照明变化。一个很好的例子就是一个全天候系统-光源的位置和颜色随时间变化。</p>
+<p>教程中写的工作方式总结大概如下：</p>
+<p>将<code>indirect (bounced) light</code>的纹理细节存储在lightingmap里，将不需要或者足够满足需求的细节存储在光照贴图里，进行烘焙，可以简化计算次数，然后再配置需要GI的部分？（还在学习中）</p>
+<blockquote>
+<p>Fortunately, this tends to be soft with few sharp, or ‘high frequency’ changes in color. Unity’s Precomputed Realtime GI solution exploits these ‘diffuse’ characteristics of indirect light to our advantage.</p>
+<p> Not only do we have to store both sets of lightmaps in video memory, but we also pay the processing cost of decoding both in shaders.</p>
+</blockquote>
+<h4><span id="qi-yong-hong-bei-huo-yu-ji-suan-enabling-baked-gi-or-precomputed-realtime-gi">启用烘焙或预计算Enabling Baked GI or Precomputed Realtime GI</span><a href="#qi-yong-hong-bei-huo-yu-ji-suan-enabling-baked-gi-or-precomputed-realtime-gi" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><blockquote>
+<p>By default, <strong>only Baked GI</strong> is enabled in Unity’s Lighting panel .</p>
+<p>With both enabled, which technique is used can then be controlled by each light individually <strong>Inspector</strong> &gt; <strong>Light</strong> &gt; <strong>Mode</strong> from here you can choose <strong>Realtime, Mixed, or Baked</strong>.</p>
+</blockquote>
+<p>The various stages of the baking are listed below:</p>
+<p><strong>Precomputed Realtime GI:</strong></p>
+<ol>
+<li>Create Geometry</li>
+<li>Layut Systems</li>
+<li>Create Systems</li>
+<li>Create Atlas</li>
+<li>Clustering</li>
+<li>Visibility</li>
+<li>Light Transport</li>
+<li>Tetrahedralize Probes</li>
+<li>Create ProbeSet</li>
+</ol>
+<p><strong>Probes</strong></p>
+<ol>
+<li>Ambient Probes</li>
+<li>Baked/Realtime Ref. Probes</li>
+</ol>
+<p><strong>Baked GI</strong></p>
+<ol>
+<li>Create Geometry</li>
+<li>Atlassing</li>
+<li>Create Baked Systems</li>
+<li>Baked Resources</li>
+<li>Baked AO</li>
+<li>Export Baked Texture</li>
+<li>Bake Visibility</li>
+<li>Bake Direct</li>
+<li>Ambient and Emissive</li>
+<li>Create Bake Systems</li>
+<li>Bake Runtime</li>
+<li>Upsampling Visibility</li>
+<li>Bake Indirect</li>
+<li>Final Gather</li>
+<li>Bake ProbesSet</li>
+<li>Compositing</li>
+</ol>
+<h2><span id="enable-precomucatedlighting">Enable PrecomucatedLighting</span><a href="#enable-precomucatedlighting" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h2><blockquote>
+<p>Only static geometry is considered by Unity’s precomputed lighting solutions.</p>
+</blockquote>
+<p>Unity的预计算照明解决方案仅考虑静态几何体。要开始照明预计算过程，我们需要至少一个在场景中标记为“静态”的GameObject。这既可以单独完成，也可以通过从层次结构面板中移动选择多个GameObject来完成   <strong>Inspector</strong> &gt; <strong>Static</strong></p>
+<blockquote>
+<p> This will set all of the GameObject’s ‘static options’, or ‘flags’, including navigation and batching, to be static, which may not be desirable. For Precomputed Realtime GI, only ‘Lightmap Static’ needs to be checked.</p>
+</blockquote>
+<h2><span id="begin-with-shaderlab">Begin with ShaderLab</span><a href="#begin-with-shaderlab" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h2><h3><span id="shader-intro">Shader Intro</span><a href="#shader-intro" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><blockquote>
+<p> is a program that runs on the GPU. This program requires several inputs to process an output—sometimes via multiple passes or “steps.</p>
+</blockquote>
+<p><strong>Surface Shaders</strong>，就是常说的（常用的）shader类型，表面着色器</p>
+<p><strong>Vertex Shaders</strong>，顶点着色器，取代物体原来的顶点，可以用来做动画（如粒    </p>
+<p>子、消融特效等）</p>
+<p><strong>Compute Shaders</strong>，Geometry Shaders 暂且略过</p>
+<h3><span id="step-1-creating-surface-shader">Step 1 Creating Surface Shader</span><a href="#step-1-creating-surface-shader" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200410163501.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200410163501.png" alt=""></a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs c++">Shader <span class="hljs-string">"Custom/NewSurfaceShader"</span> <span class="hljs-comment">//这个字符串是shader的路径</span><br>    <span class="hljs-comment">//斜线左边为其父类的组，无则新增，有则累加，右边才是真正的名字。注意，这些</span><br>    <span class="hljs-comment">//ader名不像C#脚本，无需文件名与shader名相同。</span><br>&#123;<br>    Properties <span class="hljs-comment">//属性 定义一些全局变量 对于OpenGl这些变量是统一的</span><br>    &#123;<br>        _Color (<span class="hljs-string">"Color"</span>, Color) = (<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)<br>  <span class="hljs-comment">//属性语法 _Internalname ("Inspector title",property type) = default value</span><br>        _MainTex (<span class="hljs-string">"Albedo (RGB)"</span>, <span class="hljs-number">2</span>D) = <span class="hljs-string">"white"</span> &#123;&#125;<br>        _Glossiness (<span class="hljs-string">"Smoothness"</span>, Range(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>)) = <span class="hljs-number">0.5</span><br>        _Metallic (<span class="hljs-string">"Metallic"</span>, Range(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>)) = <span class="hljs-number">0.0</span><br>    <span class="hljs-comment">//一个自定义的属性 例如 _Tint("TintColor",Color)=（1,1,0,0）</span><br>    &#125;<br>    <span class="hljs-comment">//在subshader块上方 可以为properties里的属性创建变量</span><br>    <span class="hljs-comment">//例如 fixed4 _Tint</span><br>    SubShader <span class="hljs-comment">//类似于Main()函数 </span><br>    &#123;<br>        Tags &#123; <span class="hljs-string">"RenderType"</span>=<span class="hljs-string">"Opaque"</span> &#125;<br>        LOD <span class="hljs-number">200</span><br><br>        CGPROGRAM<br>        <span class="hljs-comment">// Physically based Standard lighting model, and enable shadows on all light types</span><br>        #pragma surface surf Standard fullforwardshadows<br><br>        <span class="hljs-comment">// Use shader model 3.0 target, to get nicer looking lighting</span><br>        #pragma target <span class="hljs-number">3.0</span><br><br>        sampler2D _MainTex;<br><br>        <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Input</span><br>        &#123;</span><br>            float2 uv_MainTex;<br>        &#125;;<br><br>        half _Glossiness;<br>        half _Metallic;<br>        fixed4 _Color;<br><br>        <span class="hljs-comment">// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.</span><br>        <span class="hljs-comment">// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.</span><br>        <span class="hljs-comment">// #pragma instancing_options assumeuniformscaling</span><br>        UNITY_INSTANCING_BUFFER_START(Props)<br>            <span class="hljs-comment">// put more per-instance properties here</span><br>        UNITY_INSTANCING_BUFFER_END(Props)<br><br>        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">surf</span> <span class="hljs-params">(Input IN, inout SurfaceOutputStandard o)</span><br>        </span>&#123;<br>            <span class="hljs-comment">// Albedo comes from a texture tinted by color</span><br>            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;<br>            o.Albedo = c.rgb;<br>            <span class="hljs-comment">// Metallic and smoothness come from slider variables</span><br>            o.Metallic = _Metallic;<br>            o.Smoothness = _Glossiness;<br>            o.Alpha = c.a;<br>        &#125;<br>        ENDCG<br>    &#125;<br>    FallBack <span class="hljs-string">"Diffuse"</span> <span class="hljs-comment">//如果shader无法正常运行 会讲Unity引导到替代的shader上</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>这是新建一个shader时的默认样例。</p>
+<h3><span id="step-2-creating-a-material">Step 2  Creating a Material</span><a href="#step-2-creating-a-material" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200410163707.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200410163707.png" alt=""></a></p>
+<p>通过创建一个材质来访问刚刚新建的shader。</p>
+<h2><span id="writing-shaders">Writing Shaders</span><a href="#writing-shaders" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h2><h3><span id="properties">Properties</span><a href="#properties" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><blockquote>
+<ul>
+<li>For <em>Range</em> and <em>Float</em> properties it’s just a single number, for example “13.37”.</li>
+<li>For <em>Color</em> and <em>Vector</em> properties it’s four numbers in parentheses, for example “(1,0.5,0.2,1)”.</li>
+<li>For 2D Textures, the default value is either an empty string, or one of the built-in default Textures: “white” (RGBA: 1,1,1,1), “black” (RGBA: 0,0,0,0), “gray” (RGBA: 0.5,0.5,0.5,0.5), “bump” (RGBA: 0.5,0.5,1,0.5) or “red” (RGBA: 1,0,0,0).</li>
+<li>For non–2D Textures (Cube, 3D, 2DArray) the default value is an empty string. When a Material does not have a Cubemap/3D/Array Texture assigned, a gray one (RGBA: 0.5,0.5,0.5,0.5) is used.</li>
+</ul>
+</blockquote>
+<p>主要就是定义一些常规的全局属性值</p>
+<h3><span id="subshader">SubShader</span><a href="#subshader" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">Subshader &#123; [Tags] [CommonState] Passdef [Passdef ...] &#125;<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Tags  用于定义这个着色器是否可选</li>
+<li>CommonState 通用状态</li>
+<li>Passdef 渲染通道</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Pass &#123; [Name and Tags] [RenderSetup] &#125;<br></code></pre></td></tr></table></figure>
+<ul>
+<li><p>Name就是这个通道的名称</p>
+</li>
+<li><p>Tags 标签 <code>Tags { &quot;TagName1&quot; = &quot;Value1&quot; &quot;TagName2&quot; = &quot;Value2&quot; }</code> 例如</p>
+<p>LightMode 可能的值有</p>
+<blockquote>
+<ol>
+<li><p><strong>Always</strong>：始终渲染；没有照明。</p>
+</li>
+<li><p><strong>ForwardBase</strong>：<a href="https://docs.unity3d.com/2019.3/Documentation/Manual/RenderTech-ForwardRendering.html">正向渲染中使用</a></p>
+</li>
+<li><p><strong>ForwardAdd</strong>：用于<a href="https://docs.unity3d.com/2019.3/Documentation/Manual/RenderTech-ForwardRendering.html">正向渲染</a>；施加每个像素的加性光，每个光通一遍。</p>
+</li>
+<li><p><strong>Deferred</strong>：在<a href="https://docs.unity3d.com/2019.3/Documentation/Manual/RenderTech-DeferredShading.html">Defedred Shading</a>渲染缓冲区</p>
+</li>
+<li><p><strong>ShadowCaster</strong>：将对象深度渲染到阴影贴图或深度纹理中。</p>
+</li>
+<li><p><strong>MotionVectors</strong>：用于计算每个对象的运动矢量。</p>
+</li>
+<li><p><strong>PrepassBase</strong>：在<a href="https://docs.unity3d.com/2019.3/Documentation/Manual/RenderTech-DeferredLighting.html">旧版Deferred Lighting中使用</a>，渲染法线和镜面指数。</p>
+</li>
+<li><p><strong>PrepassFinal</strong>：在<a href="https://docs.unity3d.com/2019.3/Documentation/Manual/RenderTech-DeferredLighting.html">旧版Deferred Lighting中使用</a>，通过组合纹理，照明和发射来渲染最终颜色。</p>
+</li>
+<li><p><strong>顶点（Vertex）</strong>：当对象未设置光照时，用于<a href="https://docs.unity3d.com/2019.3/Documentation/Manual/RenderTech-VertexLit.html">旧版Vertex Lit渲染</a>；所有顶点光都被应用。</p>
+</li>
+<li><blockquote>
+<p><strong>VertexLMRGBM</strong>：当对象被光照时，用于<a href="https://docs.unity3d.com/2019.3/Documentation/Manual/RenderTech-VertexLit.html">传统的Vertex Lit渲染</a>；在光照图是RGBM编码的平台上（PC和控制台）。</p>
+</blockquote>
+</li>
+<li><p><strong>VertexLM</strong>：当对象被光照时，用于<a href="https://docs.unity3d.com/2019.3/Documentation/Manual/RenderTech-VertexLit.html">传统的Vertex Lit渲染</a>；在光照图是双LDR编码的平台上（移动平台）。</p>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<p>​         PassFlags标签 ，使用的值是 <strong>OnlyDirectional</strong>：在ForwardBase传递类型中使用          时，使用此标志可以使其仅将主定向光照和环境/光照探针数据传递到着色器中。</p>
+<ul>
+<li><h4><span id="rendersetup-xuan-ran-zhuang-tai-she-zhi">RenderSetup 渲染状态设置</span><a href="#rendersetup-xuan-ran-zhuang-tai-she-zhi" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><p>常用的命令有<strong>Cull</strong> <code>Cull Back | Front | Off</code></p>
+<p> <strong>ZTest</strong> <code>ZTest (Less | Greater | LEqual | GEqual | Equal | NotEqual | Always)</code> <strong>ZWrite</strong> <code>ZWrite On | Off</code></p>
+<p><strong>Offset</strong> <code>Offset OffsetFactor, OffsetUnits</code></p>
+<p><strong>Blend</strong> <code>Blend sourceBlendMode destBlendMode Blend sourceBlendMode destBlendMode, alphaSourceBlendMode alphaDestBlendMode BlendOp colorOp BlendOp colorOp, alphaOp AlphaToMask On | Off</code></p>
+<p><strong>ColorMask</strong> <code>ColorMask RGB | A | 0 | any combination of R, G, B, A</code> 写<em>ColorMask 0 </em>将关闭对所有颜色通道的渲染。</p>
+</li>
+</ul>
+<blockquote>
+<p><a href="https://docs.unity3d.com/2019.3/Documentation/Manual/SL-ShaderPrograms.html">https://docs.unity3d.com/2019.3/Documentation/Manual/SL-ShaderPrograms.html</a>  Unity关于属性的文档</p>
+</blockquote>
+<h3><span id="chang-yong-de-tie-tu">常用的贴图</span><a href="#chang-yong-de-tie-tu" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><ul>
+<li><p>Texture：纹理</p>
+</li>
+<li><p>Normal map：法线贴图</p>
+</li>
+<li><p>Cubemap：立方体贴图</p>
+</li>
+<li><p>Cookie：聚光灯贴图</p>
+</li>
+<li><p>Lightmap：光照贴图</p>
+</li>
+<li><p>Gloss 光泽度 表面粗糙度贴图</p>
+</li>
+<li><p>Specular 高光贴图</p>
+</li>
+<li><p>二维贴图就是UV 两个坐标 U是水平方向 V是垂直方向 三维贴图就是UVW</p>
+</li>
+</ul>
+<h3><span id="chang-yong-de-cai-zhi-shu-xing">常用的材质属性</span><a href="#chang-yong-de-cai-zhi-shu-xing" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h3><p><a href="https://gitee.com/hikohikoyan/Gallery/raw/master/20200410185009.png" data-caption="" data-fancybox="images"><img src="https://gitee.com/hikohikoyan/Gallery/raw/master/20200410185009.png" alt=""></a></p>
+<p>以上图为例 从上至下说明：</p>
+<h4><span id="rendering-mode">Rendering Mode</span><a href="#rendering-mode" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><p>可以选择对象是否使用透明度，如果使用，则选择使用哪种混合模式.</p>
+<ul>
+<li><strong>Opaque</strong> -是默认值，适用于没有透明区域的普通实体。</li>
+<li><strong>Cutout</strong>-允许您创建透明效果，在不透明区域和透明区域之间具有硬边。在此模式下，没有半透明区域，纹理是100％不透明或不可见的。当使用透明性来创建材料的形状（例如树叶或带有孔和破烂物的布料）时，这很有用。</li>
+<li><strong>Transparent</strong>  -适用于渲染逼真的透明材料，例如透明塑料或玻璃。在这种模式下，材质本身将具有透明度值（基于纹理的Alpha通道和色调颜色的Alpha），但是反射和照明高光将保持完全清晰可见，就像真实的透明材质一样。</li>
+<li><strong>Fade</strong> -允许透明度值使对象完全淡入淡出，包括对象可能具有的任何镜面高光或反射。如果要对淡入或淡出的对象设置动画，此模式很有用。它不适合渲染逼真的透明材料，例如透明的塑料或玻璃，因为反射和高光也会淡出。</li>
+</ul>
+<h4><span id="maps">Maps</span><a href="#maps" class="header-anchor">#</a><a class="post-anchor" href="#undefined"></a></h4><p><strong>Albedo</strong> 反照率质地应是很重要的<strong>不</strong>包含任何照明，因为照明将基于该对象看到的范围内添加到它。</p>
+<p>【系数取值范围为0~1之间，包括0,1】</p>
+<ul>
+<li>Dynamic Friction：动摩擦系数</li>
+<li>Static Firction：静摩擦系数</li>
+<li>Bounciness：弹性系数</li>
+<li>Friction Combine：联动摩擦</li>
+<li>Bounce Combine：联动反弹</li>
+</ul>
+
+
+  
+    <div class="post-reward">
+    <div id="reward-button">打赏</div>
+      <div id="qr">
+        <div class="wrap">
+            
+            <div class="bg-wrap">
+              <a href="/images/zhifubao.png" target="_block" class="bg" style="background-image:url('/images/zhifubao.png')"></a>
+              支付宝
+            </div>
+            
+            
+            <div class="bg-wrap">
+                <a href="/images/weixin.png" target="_block" class="bg" style="background-image:url('/images/weixin.png')"></a>
+              微信
+            </div>
+            
+        </div>
+      </div>
+    </div>
+  
+  <div class="post-guide">
+    <div class="item left">
+        
+    </div>
+    <div class="item right">
+        
+          <a href="/2020/07/post/">重新学习CSS</a>
+        
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="http://www.hikoyan.design">hiko</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="http://www.hikoyan.design/2020/10/post/">http://www.hikoyan.design/2020/10/post/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="http://www.hikoyan.design">hiko</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+  
+</article>
+        <footer>
+          <div class="copyright">
+            ©2020
+            <a href="http://www.hikoyan.design">hiko</a> Powered by <a href="https://hexo.io">Hexo</a> |
+            <a href="https://github.com/shixiaohu2206/hexo-theme-huhu">hexo-theme-huhu</a>
+          </div>
+          
+        </footer>
+      </div>
+    </div>
+  </body>
+  
+</html>
+<script type="text/javascript">
+                  window.HUHU_CONFIG = JSON.parse("{\"share\":[\"weibo\",\"weixin\",\"qqkongjian\",\"QQ\",\"douban\",\"facebook\",\"twitter\",\"google\"],\"valine\":{\"API_ID\":\"LVXM6K0V3JVURBpq0PFx9ACu-gzGzoHsz\",\"API_KEY\":\"7RlipnLnXQkz2pvR4svHyIrO\"},\"service_worker\":{\"open\":false}}")
+                </script> <script type="text/javascript">window.addEventListener('load', function() {
+    
+    window.loadJs = function(d, m, a) {
+      var c = document.getElementsByTagName('head')[0] || document.head || document.documentElement
+      var b = document.createElement('script')
+      b.defer = true
+      b.setAttribute('type', 'text/javascript')
+      b.setAttribute('charset', 'UTF-8')
+      b.setAttribute('async', 'true')
+      b.setAttribute('src', d)
+      m && b.setAttribute('data-main', '/scripts/app-built')
+      if (typeof a === 'function') {
+        if (window.attachEvent) {
+          b.onreadystatechange = function() {
+            var e = b.readyState
+            if (e === 'loaded' || e === 'complete') {
+              b.onreadystatechange = null
+              a()
+            }
+          }
+        } else {
+          b.onload = a
+        }
+      }
+      c.appendChild(b)
+    }
+    window.loadJs && window.loadJs('https://cdn.bootcss.com/require.js/2.3.6/require.min.js', true, function() {require.config({"paths":{"util":"util","share":"share","search":"search","pagemap":"pagemap.min","registerSW":"registerSW","valine":"cdn/Valine.min","av":["https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min"],"pjax":["https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min"],"jquery":["https://cdn.bootcss.com/jquery/3.4.1/jquery.min"],"confirm":["https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min"],"fancybox":["https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min"],"chart":["https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.bundle.min"]},"map":{"*":{"css":"https://cdn.bootcss.com/require-css/0.1.10/css.min.js"}},"shim":{"fancybox":{"deps":["css!https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css"]},"confirm":{"deps":["css!https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min.css"]},"chart":{"deps":["css!https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.min.css"]}},"waitSeconds":3})})
+  })</script>  
